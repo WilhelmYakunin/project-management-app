@@ -2,9 +2,7 @@
 
 simple of Canban
 
-TO start develop
-
-run
+To start develop run
 
 ### `npm i`
 
