@@ -1,0 +1,31 @@
+.header{
+  width: 80vw;
+  margin: 0 auto;
+  height: 10vh;
+  border-bottom: whitesmoke solid 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header_link{
+  text-decoration: none;
+  color: whitesmoke;
+  margin-left: 2em;
+  border: whitesmoke solid 2px;
+  border-radius: 6px;
+  padding: 1em;
+  transform: 0.4s;
+}
+
+.header_link:hover{
+  color: #2d8bf0;
+  transform: 0.4s;
+  border: #2d8bf0 solid 2px;
+}
+
+.active{
+  color: #2d8bf0;
+  border: #2d8bf0 solid 2px;
+}
