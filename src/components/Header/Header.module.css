@@ -10,7 +10,9 @@
 }
 
 .header_link{
+  width: 4vw;
   text-decoration: none;
+  text-align: center;
   color: whitesmoke;
   margin-left: 2em;
   border: whitesmoke solid 2px;

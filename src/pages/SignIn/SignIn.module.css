@@ -44,3 +44,11 @@
   color: #2d8bf0;
 }
 
+.active{
+  font-weight: 500;
+}
+
+.red{
+  color: red;
+  margin: 0.2em;
+}
