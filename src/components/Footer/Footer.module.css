@@ -1,0 +1,49 @@
+.footer{
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  border-top: whitesmoke solid 2px;
+
+  color: whitesmoke;
+}
+
+.footer_list{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 40vw;
+  justify-content: space-between;
+}
+
+.footer_list li a{
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 400;
+  font-size: 1rem;
+  transition: 0.4s;
+}
+
+.footer_list li a:hover{
+  color: #2d8bf0;
+  transition: 0.4s;
+}
+
+.footer_rss{
+  background-image: url('./rss.svg?inline');
+  width: 5.8em;
+  height: 2em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: 0.4s;
+}
+
+.footer_rss:hover,
+.footer_rss:focus{
+    filter: invert(53%) sepia(67%) saturate(4182%) hue-rotate(193deg) brightness(98%) contrast(92%);
+    transition: 0.4s;
+}
