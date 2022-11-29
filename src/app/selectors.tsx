@@ -1,0 +1,1 @@
+export const getModalType = (state: any) => state.modal.modalType

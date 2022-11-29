@@ -1,3 +1,9 @@
 {
-    "test": { "other": "tests" }
+    "test": { "other": "tests" },
+    "logout": "Log Out",
+    "logout_form": {
+        "modal_close_dialog": "Are you sure ?",
+        "yes": "Yes",
+        "no": "No"
+    }
 }
