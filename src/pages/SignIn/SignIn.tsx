@@ -49,7 +49,7 @@ export const SignIn = () => {
         }
       })
       .catch(() => {
-        alert('The username or password is incorrect');
+        alert('The username and/ or password is incorrect');
       });
   };
 

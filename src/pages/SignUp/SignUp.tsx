@@ -46,7 +46,7 @@ export const SignUp = () => {
       })
       .then((user: User | undefined) => {
         if (user) {
-          navigate('/SignIn');
+          navigate('/project-management-app/SignIn');
         }
       });
   };
