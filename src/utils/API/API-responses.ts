@@ -54,3 +54,15 @@ export async function deleteBoardById(id: string) {
 
   return response;
 }
+
+export async function getColumnsListByBoardId(boardId: string) {
+  const response = await fetch(`${boards}/${boardId}/columns`, {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `${localStorage.getItem('token')}`,
+    },
+  });
+
+  return response;
+}

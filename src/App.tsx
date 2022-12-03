@@ -7,11 +7,12 @@ import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { SignUp } from './pages/SignUp/SignUp';
 import BoardsPage from './pages/boards-page/boards-page';
+import SpecifiedBoardPage from './pages/specified-bard-page/specified-board-page';
 
 const App = () => {
   localStorage.setItem(
     'token',
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAwMTMxODEsImV4cCI6MTY3MDA1NjM4MX0.mU2IgPVtOo-C3DIHzWdQTf2_GLaKSW45KEQQHOR6DGA'
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAwNzM5NzgsImV4cCI6MTY3MDExNzE3OH0.rVT1RZhBmBfPDuon2O_qWMftiAiUkpiOIXGngEyPsiU'
   );
 
   return (
@@ -28,6 +29,7 @@ const App = () => {
       </NavLink>
       <Routes>
         <Route path="/boards" element={<BoardsPage />} />
+        <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
       </Routes>
 
       <Footer />
