@@ -1,6 +1,6 @@
 import style from './SignUp.module.css';
 import * as yup from 'yup';
-import { useAppDispatch } from '../../app/hooks';
+import { useTranslate } from '../../app/hooks';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -26,8 +26,8 @@ type SignUpFormData = {
 };
 
 export const SignUp = () => {
-  const dispatch = useAppDispatch();
   let navigate = useNavigate();
+  const { t } = useTranslate();
 
   const {
     register,
@@ -54,7 +54,7 @@ export const SignUp = () => {
   return (
     <div>
       <form className={style.login_form} onSubmit={handleSubmit(signup)}>
-        <p className={style.login_form_text}>Sign up for your account</p>
+        <p className={style.login_form_text}>{t('signun').title}</p>
         <div>
           <input className={style.login_form_input} placeholder="Name" {...register('name')} />
         </div>
@@ -64,11 +64,16 @@ export const SignUp = () => {
         </div>
         <p className={style.red}>{errors.login?.message}</p>
         <div>
-          <input className={style.login_form_input} type="password" placeholder="Password" {...register('password')} />
+          <input
+            className={style.login_form_input}
+            type="password"
+            placeholder="Password"
+            {...register('password')}
+          />
         </div>
         <p className={style.red}>{errors.password?.message}</p>
         <button type="submit" className={style.login_form_input + ' ' + style.login_form_btn}>
-          Sign Up
+          {t('signun').button}
         </button>
       </form>
     </div>

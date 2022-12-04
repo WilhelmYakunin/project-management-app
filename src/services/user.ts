@@ -1,6 +1,4 @@
-import { User } from '../models';
-import { BASE_URL } from './';
-import { AuthHeader } from './login';
+import axios from 'axios';
 
 export interface UserData {
   name: string;
@@ -8,22 +6,10 @@ export interface UserData {
   password: string;
 }
 
-export const getUserById = async (id: string): Promise<User> => {
-  return await fetch(`${BASE_URL}/users/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      ...AuthHeader(),
-    },
-  }).then((resp) => resp.json());
+export const getUserById = async (id: string) => {
+  return await axios.get(`/users/${id}`).then((resp) => resp.data);
 };
 
-export const addUser = async (user: UserData): Promise<User> => {
-  return await fetch(`${BASE_URL}/auth/signup`, {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((resp) => resp.json());
+export const addUser = async (user: UserData) => {
+  return await axios.post('/auth/signup', JSON.stringify(user)).then((resp) => resp.data);
 };

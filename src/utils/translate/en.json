@@ -1,3 +1,18 @@
 {
-    "test": { "other": "tests" }
+    "test": { "other": "tests" },
+    "signin": {
+        "button": "Sign In",
+        "title": "Log in to your account"
+    },
+    "signup": {
+        "button": "Sign Up",
+        "title": "Sign up for your account"
+    }, 
+    "header": {
+        "button1": "SignIn",
+        "button2": "SignUp",
+        "button3": "LogOut",
+        "button4": "Go to Main",
+        "button5": "Home"
+    }
 }
