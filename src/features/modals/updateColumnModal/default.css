@@ -1,4 +1,4 @@
-.Creating-modal {
+.Update-task-modal {
     height: 90vh;
     width: 100vw;
     display: flex;
@@ -11,7 +11,7 @@
     to { opacity: 1}
   }
 
-.Creating-modal_default {
+.Update-task-modal_default {
     margin: auto auto;
     display: flex;
     flex-direction: column;
@@ -21,25 +21,25 @@
 }
 
 @media (min-width: 768px) {
-    .Creating-modal_default {
-      width: 80%;
-      height: 80%;
+    .Update-task-modal_default {
+      width: 60%;
+      height: 60%;
     }
 }
   
 @media (min-width: 992px) {
-    .Creating-modal_default {
+    .Update-task-modal_default {
       width: 50%;
     }
 }
   
 @media (min-width: 1200px) {
-    .Creating-modal_default {
+    .Update-task-modal_default {
       width: 50%;
     }
 }
 
-.Creating-modal-close {
+.Update-task-modal-close {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,62 +49,62 @@
 
 }
 
-.Creating-modal-close_default > button {
+.Update-task-modal-close_default > button {
     border: none;
     color: #1983aa;
     background-color: transparent;
 }
 
-.Creating-modal-close_default > button:hover {
+.Update-task-modal-close_default > button:hover {
     transition: box-shadow 0.2s;
     cursor: pointer;
     box-shadow: #1983aa 0px 0px 2px
 }
 
-.Creating-modal-body_default {
+.Update-task-modal-body_default {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.Creating-modal-body-item_default {
+.Update-task-modal-body-item_default {
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-self: center;
 }
 
-.Creating-modal-body-item--label_default {
+.Update-task-modal-body-item--label_default {
     margin-top: 20px;
     padding: 0;
 }
 
-.Creating-modal-body-item--err_default {
+.Update-task-modal-body-item--err_default {
     position: absolute;
     align-items: flex-end;
     color: red;
 }
 
-.Creating-modal-body-item--input_default {
+.Update-task-modal-body-item--input_default {
     margin-top: 20px;
     padding: 0;
     width: 70%;
 }
 
-.Creating-modal-body-item--numberInput_default {
+.Update-task-modal-body-item--numberInput_default {
     width: 45%;
     display: flex;
     justify-content: space-between;
 }
 
-.Creating-modal-footer_default {
+.Update-task-modal-footer_default {
     min-height: 30px;
     padding: 10px;
     border-top: 1px solid #1983aa;
 }
 
-.Creating-modal-footer_button_default {
+.Update-task-modal-footer_button_default {
     margin: 0;
     padding: 0;
     cursor: pointer;
@@ -115,17 +115,17 @@
     height: 100%;
 }
 
-.Creating-modal-footer_button_default:first-child {
+.Update-task-modal-footer_button_default:first-child {
     border-right: 1px solid #1983aa;
 }
 
-.Creating-modal-footer_button_default:hover,
-.Creating-modal-footer_button_default:focus {
+.Update-task-modal-footer_button_default:hover,
+.Update-task-modal-footer_button_default:focus {
     transition: box-shadow .5s ease-in-out;
     box-shadow: inset 0 0 0 2em #1983aa;
 }
 
-.Creating-modal-footer_button_default:disabled {
+.Update-task-modal-footer_button_default:disabled {
     cursor: not-allowed;
     background-color: gray;
 

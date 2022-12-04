@@ -6,3 +6,4 @@ export const getInitUsers = (state: any) => state.modal.users.partisipants
 export const getModalTitleErr = (state: any) => state.modal.errTitle
 export const getItemLoadStatus = (state: any) => state.modal.item.status
 export const getItemData = (state: any) => state.modal.item.data
+export const getModalDescErr = (state: any) => state.modal.descTitle

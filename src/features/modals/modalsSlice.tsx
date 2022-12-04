@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { routes } from '../../app/routes'
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGJjZWY1NTM1NTE4YTM4ZjNkMTExYSIsImxvZ2luIjoiSWs5OTk5OTkiLCJpYXQiOjE2NzAxMDY4ODQsImV4cCI6MTY3MDE1MDA4NH0.avNtkvN9ZWhJcbz5lZSD3RqhmwRuXrlJF8E-1AEhfYI'
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAxNzQyMTAsImV4cCI6MTY3MDIxNzQxMH0.w9fzTqYSMkI6piNMhHR_RY8MSSur5XCUNckV63WP-Fs'
 
 export const onInit = createAsyncThunk(
   'init',
@@ -23,8 +23,8 @@ export const onInit = createAsyncThunk(
 
 export const onCreate = createAsyncThunk(
   'create',
-  async ({ operation, ids: { boardId, columnId, userId }, data } 
-    : { operation: string, ids: { boardId: string, columnId: string, taskId: string, userId: string }, data: object}) => {
+  async ({ operation, ids: { boardId, columnId }, data } 
+    : { operation: string, ids: { boardId: string, columnId: string, taskId: string, userId: string }, data: object }) => {
     
     const getUrl = () => {
       switch (operation) {
@@ -44,12 +44,13 @@ export const onCreate = createAsyncThunk(
           method: 'post',
           url: getUrl(),
           headers: { Authorization: token },
-          data: ({userId, ...data}),
+          data,
           timeout: 10000,
       }
     }
-  
-    await axios(reqConfig())
+    
+    const res = await axios(reqConfig())
+    console.log(data, res.data)
   }
 )
 export const loadItem = createAsyncThunk(
@@ -60,9 +61,9 @@ export const loadItem = createAsyncThunk(
     const getUrl = () => {
       switch (operation) {
         case ('update-board'):
-          return routes.createBoard()
+          return routes.getBoardById(boardId)
         case ('update-column'): 
-          return routes.createColumn({ boardId })
+          return routes.getColumnByIds({ boardId, columnId })
         case ('update-task'):
           return routes.getTaskByIds({ boardId, columnId, taskId })
         default:
@@ -80,6 +81,7 @@ export const loadItem = createAsyncThunk(
     }
 
     const { data } = await axios(reqConfig())
+
     return data
   }
 )
@@ -92,22 +94,22 @@ export const onUpdate = createAsyncThunk(
     const getUrl = () => {
       switch (operation) {
         case ('update-board'):
-          return routes.createBoard()
+          return routes.getBoardById(boardId)
         case ('update-column'): 
-          return routes.createColumn({ boardId })
+          return routes.getColumnByIds({ boardId, columnId })
         case ('update-task'):
           return routes.getTaskByIds({ boardId, columnId, taskId })
         default:
           throw Error(`Enknown operation key: ${operation}`)
       }
     }
-console.log(data)
+
     const reqConfig = () => {
       return {
           method: 'put',
           url: getUrl(),
           headers: { Authorization: token },
-          data: ({userId, ...data}),
+          data,
           timeout: 10000,
       }
     }
@@ -159,6 +161,7 @@ const modalFromsSlice = createSlice({
       info: { operation: 'idle', ids: idleIds },
       err: null as unknown,
       errTitle: false,
+      errDesc: false,
     },
     reducers: {
       openModal: (state, action) => {
@@ -178,6 +181,8 @@ const modalFromsSlice = createSlice({
       setErrTitle (state) { state.errTitle = true },
       noErrTitle (state) { state.errTitle = false },
       setIdle: (state) => { state.item.status = 'idle' }, 
+      setErrDesc (state) { state.errDesc = true },
+      noErrDesc (state) { state.errDesc = false }
     },
     extraReducers: (builder) => {
       builder
@@ -197,8 +202,10 @@ const modalFromsSlice = createSlice({
         })
         .addCase(onInit.rejected || loadItem.rejected || onDelete.rejected || onCreate.rejected, (state, action) => {
           state.status = 'failed'
+          console.log(action.payload)
           state.err = action.payload
           state.modalType = 'unset'
+          state.item.status = 'idle'
           state.info = { operation: 'idle', ids: idleIds }
         });
     },
@@ -210,7 +217,9 @@ const modalFromsSlice = createSlice({
     logout,
     setErrTitle,
     noErrTitle,
-    setIdle
+    setIdle,
+    setErrDesc,
+    noErrDesc
   } = modalFromsSlice.actions
   
   export default modalFromsSlice.reducer

@@ -6,7 +6,11 @@ import './App.css';
 
 import LogOutButton from './features/buttons/logOutButton/logOutButton';
 import CreateTaskButton from './features/buttons/createTaskButton/createTaskButton';
+import CreateColumnButton from './features/buttons/createColumnButton/createColumnButton';
+import CreateBoardButton from './features/buttons/createBoardButton/createBoardButton';
 import UpdateTaskButton from './features/buttons/updateTaskButton/updateTaskButton';
+import UpdateColumnButton from './features/buttons/updateColumnButton/updateColumnButton';
+import UpdateBoardButton from './features/buttons/updateBoardButton/updateBoardButton';
 import DeleteBoardButton from './features/buttons/deleteBoardButton/deleteBoardButton';
 import DeleteColumnButton from './features/buttons/deleteColumnButton/deleteColumnButton';
 import DeleteTaskButton from './features/buttons/deleteTaskButton/deleteTaskButton';
@@ -15,6 +19,7 @@ import ModalForm from './features/modals/modalForm';
 import Spinner from './features/spinner/spinner';
 import { getInitUsersStatus } from './app/selectors';
 import { onInit } from './features/modals/modalsSlice';
+
 
 function App() {
   const dispatch = useAppDispatch()
@@ -27,7 +32,11 @@ function App() {
       <Blocker />
       <LogOutButton />
       <CreateTaskButton boardId='6389948a535518a38f3d0f8e' columnId='638994b1535518a38f3d0f90' userId='0' />
+      <CreateColumnButton boardId='6389948a535518a38f3d0f8e' />
+      <CreateBoardButton />
       <UpdateTaskButton boardId='6389948a535518a38f3d0f8e' columnId='638994b1535518a38f3d0f90' userId='0' taskId='63899505535518a38f3d0f93' />
+      <UpdateColumnButton boardId='6389948a535518a38f3d0f8e' columnId='638994b1535518a38f3d0f90' />
+      <UpdateBoardButton boardId='6389948a535518a38f3d0f8e' />
       <DeleteBoardButton boardId='6389948a535518a38f3d0f8e' />
       <DeleteColumnButton boardId='6389948a535518a38f3d0f8e' columnId='638994b1535518a38f3d0f90' />
       <DeleteTaskButton boardId='6389948a535518a38f3d0f8e' columnId='638994b1535518a38f3d0f90' taskId='63899646535518a38f3d0f9b' />

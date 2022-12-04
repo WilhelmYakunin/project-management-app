@@ -52,5 +52,13 @@
     "update-task": {
         "button_title": "Update task",
         "modal_title": "Update task"
-    }
+    },
+    "update-column": {
+        "button_title": "Update column",
+        "modal_title": "Update column"
+    },
+    "update-board": {
+        "button_title": "Update column",
+        "modal_title": "Update column"
+    } 
 }

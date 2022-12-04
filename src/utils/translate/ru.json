@@ -64,5 +64,13 @@
     "update-task": {
         "button_title": "Изменить задачу",
         "modal_title": "Изменение задачи"
-    }
+    },
+    "update-column": {
+        "button_title": "Изменить колонку",
+        "modal_title": "Изменение колонки"
+    },
+    "update-board": {
+        "button_title": "Изменить доску",
+        "modal_title": "Изменение доски"
+    } 
 }

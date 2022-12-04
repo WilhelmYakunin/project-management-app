@@ -2,31 +2,28 @@ import React, { BaseSyntheticEvent, MouseEventHandler, useCallback, useEffect, u
 import Spinner from "../../spinner/spinner"
 import { useTranslate } from "../../../app/hooks"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
-import { getModalInfo, getModalStatus, getInitUsers, getModalTitleErr, getItemLoadStatus, getItemData } from "../../../app/selectors"
+import { getModalInfo, getModalStatus, getModalTitleErr, getItemLoadStatus, getItemData } from "../../../app/selectors"
 import { closeModal, onUpdate, setErrTitle, noErrTitle, loadItem, setIdle } from "../modalsSlice"
 
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
 
-const UpdateTaskModal = () => {
+const UpdateColumnModal = () => {
     const { t } = useTranslate()
     const dispatch = useAppDispatch()
     const { operation, ids } = useAppSelector(getModalInfo)
-    const users = useAppSelector(getInitUsers)
     const status = useAppSelector(getModalStatus)
     const titleErr = useAppSelector(getModalTitleErr)
     const itemLoadStatus = useAppSelector(getItemLoadStatus)
     const item = useAppSelector(getItemData)
     const [title, setTitle] = useState(item.title)
-    const [desc, setDescValue] = useState(item.description)
     const [order, setOrder] = useState(item.order)
 
-    const cn = bem('Creating-modal')
+    const cn = bem('Update-task-modal')
 
-    useEffect((): any => {
-        itemLoadStatus !== 'loaded' && dispatch(loadItem({operation: 'update-task', ids}))
+    useEffect(() => {
+        itemLoadStatus !== 'loaded' && dispatch(loadItem({operation: 'update-column', ids}))
         setTitle(item.title)
-        setDescValue(item.description)
         setOrder(item.order)
     }, [dispatch, item, itemLoadStatus, ids])
 
@@ -39,17 +36,10 @@ const UpdateTaskModal = () => {
             e.preventDefault() 
             const form = e.target
             const title = form[cn('title')].value
-            const description = form[cn('description')].value
-            const users = [form[cn('participant')].value]
             const order = form[cn('order')].value
-            const { userId, columnId } = ids
             const data = {
                 title,
-                description,
-                users,
                 order,
-                userId, 
-                columnId
             }
             if (title === '') {
                 return dispatch(setErrTitle())
@@ -77,16 +67,6 @@ const UpdateTaskModal = () => {
                 <label className={cn('body-item--label', { default: true })} htmlFor={cn('title')}>{t('update_form').task_title}</label>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} name={cn('title')} className={cn('body-item--input', { default: true })} type="text" id={cn('title')} />
                 {titleErr && <span className={cn('body-item--err', { default: true })}>{t('update_form').title_err}</span>}
-            </div>
-            <div className={cn('body-item', { default: true })}>
-                <label className={cn('body-item--label', { default: true })} htmlFor={cn('description')}>{t('update_form').task_description}</label>
-                <textarea value={desc} onChange={(e) => setDescValue(e.target.value)} name={cn('description')} className={cn('body-item--input', { default: true })} id={cn('description')} rows={4}></textarea>
-            </div>
-            <div className={cn('body-item', { default: true })}>
-                <label className={cn('body-item--label', { default: true })} htmlFor={cn('participant')}>{t('update_form').task_participants}</label>
-                <select name={cn('participant')} className={cn('body-item--input', { default: true })} id={cn('participant')} >
-                    {users.map((user: { name: string, _id: string}) => <option key={user._id} value={user.name}>{user.name}</option>)}
-                </select>
             </div>
             <div className={cn('body-item', { default: true })}>
                 <label className={cn('body-item--label', { default: true })} htmlFor={cn('order')}>{t('update_form').task_order}</label>
@@ -134,4 +114,4 @@ const Button = ({style, text, type, onClick, disabled} : { style?: string, text:
 }
 
 
-export default React.memo(UpdateTaskModal)
+export default React.memo(UpdateColumnModal)
