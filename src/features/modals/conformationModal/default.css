@@ -1,4 +1,4 @@
-.Logout-modal {
+.Conformation-modal {
     height: 100vh;
     display: flex;
 
@@ -10,7 +10,7 @@
     to { opacity: 1}
   }
 
-.Logout-modal_default {
+.Conformation-modal_default {
     width: 70%;
     height: 30%;
     background-color: #22252f;
@@ -24,53 +24,58 @@
 }
 
 @media (min-width: 768px) {
-    .Logout-modal_default {
+    .Conformation-modal_default {
       width: 70%;
       height: 30%;
     }
 }
   
 @media (min-width: 992px) {
-    .Logout-modal_default {
+    .Conformation-modal_default {
       width: 50%;
       height: 30%;
     }
 }
   
 @media (min-width: 1200px) {
-    .Logout-modal_default {
+    .Conformation-modal_default {
       width: 30%;
       height: 30%;
     }
 }
 
-.Logout-modal-close {
-    align-self: flex-end;
-    margin: 5px;
-    color: #1983aa;
-    background-color: transparent;
+.Conformation-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+    border-bottom: 1px solid #da6a6d;
+
 }
 
-.Logout-modal-close_default > button {
+.Conformation-modal-close_default > button {
     border: none;
-    color: #1983aa;
+    color: #da6a6d;
     background-color: transparent;
 }
 
-.Logout-modal-close_default > button:hover {
+.Conformation-modal-close_default > button:hover {
     transition: box-shadow 0.2s;
     cursor: pointer;
-    box-shadow: #1983aa 0px 0px 2px
+    box-shadow: #da6a6d 0px 0px 2px
 }
 
-.Logout-modal-footer_default {
+.Conformation-modal-footer_default {
     display: flex;
     align-items: center;
     min-height: 30px;
-    border-top: 1px solid #1983aa;
+
+    padding: 10px;
+    border-top: 1px solid #da6a6d;
 }
 
-.Logout-modal-footer_button_default {
+.Conformation-modal-footer_button_default {
     margin: 0;
     padding: 0;
     cursor: pointer;
@@ -81,12 +86,12 @@
     height: 100%;
 }
 
-.Logout-modal-footer_button_default:first-child {
-    border-right: 1px solid #1983aa;
+.Conformation-modal-footer_button_default:first-child {
+    border-right: 1px solid #da6a6d;
 }
 
-.Logout-modal-footer_button_default:hover,
-.Logout-modal-footer_button_default:focus {
+.Conformation-modal-footer_button_default:hover,
+.Conformation-modal-footer_button_default:focus {
     transition: box-shadow .5s ease-in-out;
-    box-shadow: inset 0 0 0 2em #1983aa;
+    box-shadow: inset 0 0 0 2em #da6a6d;
 }

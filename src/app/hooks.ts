@@ -11,7 +11,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const useTranslate = () => {
   const lang = useAppSelector((state) => state.locale.lang);
   const dispatch = useAppDispatch();
-  const setLang = useCallback((lang: string) => dispatch(setLocale(lang)), []);
+  const setLang = useCallback((lang: string) => dispatch(setLocale(lang)), [dispatch]);
 
   const t = useCallback(
     (text: string, number: number | undefined = undefined) => {
