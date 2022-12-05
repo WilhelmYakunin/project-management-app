@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
@@ -8,6 +9,9 @@ import './index.css';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
+
+axios.defaults.baseURL = 'https://project-management-app-production-b64f.up.railway.app';
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 root.render(
   <React.StrictMode>

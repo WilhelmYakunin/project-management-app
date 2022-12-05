@@ -72,5 +72,26 @@
     "update-board": {
         "button_title": "Изменить доску",
         "modal_title": "Изменение доски"
-    } 
+    },
+    "signin": {
+        "button": "Войти",
+        "title": "Войдите в аккаунт"
+    },
+     "signup": {
+            "button": "Зарегистрироваться",
+            "title": "Зарегистрируйте свой аккаунт"
+        },
+     "header": {
+            "button1": "Войти",
+            "button2": "Зарегистрироваться",
+            "button3": "Выйти",
+            "button4": "Перейти на главную",
+            "button5": "Home"
+        },
+  "boardsPage": {
+    "boardListItem": {
+      "editBtn": "изменить",
+      "deleteBtn": "удалить"
+    }
+  }
 }

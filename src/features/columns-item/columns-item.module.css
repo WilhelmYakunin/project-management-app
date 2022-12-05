@@ -1,0 +1,5 @@
+.columns-list__item {
+  width: calc(25% - 20px);
+  min-height: 200px;
+  border: 2px solid red;
+}
