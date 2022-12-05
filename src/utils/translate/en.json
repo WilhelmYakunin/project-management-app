@@ -100,19 +100,15 @@
         "title": "Sign up for your account"
     }, 
     "header": {
-        "button1": "SignIn",
-        "button2": "SignUp",
+        "signin": "SignIn",
+        "signup": "SignUp",
         "button3": "LogOut",
-        "button4": "Go to Main",
-        "button5": "Home"
+        "home": "Home"
     },
   "boardsPage": {
     "boardListItem": {
       "editBtn": "edit",
       "deleteBtn": "delete"
     }
-  },
-  "description": "Welcome to PM App! PM App is an application used in project management and helps you to visualize the tasks of a team, project, or company. PM App is simple, convenient and efficient. Create tasks, edit or delete them, monitor the progress!",
-  "team": "Team",
-  "NotFound": "Not Found"
+  }
 }
