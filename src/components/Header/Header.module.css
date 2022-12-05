@@ -28,12 +28,12 @@
 }
 
 .header_link:hover {
-  color: #2d8bf0;
+  color: #1983aa;
   transition: 0.4s;
-  border: #2d8bf0 solid 2px;
+  border: #1983aasolid 2px;
 }
 
 .active{
-  color: #2d8bf0;
-  border: #2d8bf0 solid 2px;
+  color: #1983aa;
+  border: #1983aa solid 2px;
 }

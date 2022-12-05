@@ -12,4 +12,5 @@ export const routes = {
             [server, 'boards', boardId, 'columns'].join('/'),
     createTask: ({ boardId, columnId } : {boardId: string, columnId: string}) => 
             [server, 'boards', boardId, 'columns', columnId, 'tasks'].join('/'),
+    deleteUserPath: ({ userId } : { userId: string}) =>  [server, 'users', userId].join('/'),
 }

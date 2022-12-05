@@ -50,7 +50,7 @@ export const onCreate = createAsyncThunk(
     }
     
     const res = await axios(reqConfig())
-    console.log(data, res.data)
+    return res
   }
 )
 export const loadItem = createAsyncThunk(
@@ -120,8 +120,8 @@ export const onUpdate = createAsyncThunk(
 
 export const onDelete = createAsyncThunk(
   'delete',
-  async ({ operation, ids: { boardId, columnId, taskId } } 
-    : { operation: string, ids: { boardId: string, columnId: string, taskId: string }}) => {
+  async ({ operation, ids: { boardId, columnId, taskId, userId } } 
+    : { operation: string, ids: { boardId: string, columnId: string, taskId: string, userId: string }}) => {
     
     const getUrl = () => {
       switch (operation) {
@@ -131,6 +131,8 @@ export const onDelete = createAsyncThunk(
           return routes.getColumnByIds({ boardId, columnId })
         case ('delete-task'):
           return routes.getTaskByIds({ boardId, columnId, taskId })
+        case ('delete-user'):
+          return routes.deleteUserPath({ userId })
         default:
           throw Error(`Enknown operation key: ${operation}`)
       }
@@ -149,7 +151,7 @@ export const onDelete = createAsyncThunk(
   }
 )
 
-const idleIds = { boardId: 'idle', columnId: 'idle', taskId: 'idle' }
+const idleIds = { boardId: 'idle', columnId: 'idle', taskId: 'idle', userId: 'idle' }
 
 const modalFromsSlice = createSlice({
     name: 'modal',
@@ -178,6 +180,7 @@ const modalFromsSlice = createSlice({
         localStorage.removeItem('auth_token_exp_date');
         localStorage.removeItem('user');
         state.modalType = 'unset'
+        state.users.status = 'idle'
         state.info = { operation: 'idle', ids: idleIds }
       },
       setErrTitle (state) { state.errTitle = true },

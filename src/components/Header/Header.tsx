@@ -4,11 +4,12 @@ import LocaleSelect from '../../features/locales/localesSelect';
 import { useAppSelector, useTranslate } from '../../app/hooks';
 import LogOutButton from '../../features/buttons/logOutButton/logOutButton';
 import CreateBoardButton from '../../features/buttons/createBoardButton/createBoardButton';
+import EditUserProfile from '../../features/buttons/userProfileButton/editUserProfile';
 
 export const Header = () => {
   const user = useAppSelector((state) => state.user.current);
   const { t } = useTranslate();
-
+  
   return (
     <header className={style.header}>
       <div>
@@ -24,6 +25,7 @@ export const Header = () => {
       <div className={style.header_nav}>
         {user && (
           <>
+            <EditUserProfile />
             <CreateBoardButton />
             <NavLink
               to="/boards"

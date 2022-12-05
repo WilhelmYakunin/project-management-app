@@ -82,9 +82,9 @@
 }
 
 .Select-input-text:hover {
-  color: #2d8bf0;
+  color: #1983aa;
   transition: 0.4s;
-  border: #2d8bf0 solid 2px; 
+  border: #1983aa solid 2px; 
 }
 
 .Select-list {
@@ -104,13 +104,12 @@
           animation-fill-mode: forwards;
   -webkit-animation-timing-function: step-start;
           animation-timing-function: step-start;
-  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
 }
 
 .Select-option {
   display: block;
   padding: 15px;
-  background-color: black;
+  background-color: #272a2e;
 }
 
 .Select-option:hover, .Select-option:focus {

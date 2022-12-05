@@ -1,6 +1,5 @@
 import React, {BaseSyntheticEvent, useCallback} from 'react'
 
-import tick from './tick.svg'
 import { cn as bem } from '@bem-react/classname'
 import './default.css'
 
