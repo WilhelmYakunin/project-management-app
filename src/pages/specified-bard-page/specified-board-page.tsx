@@ -57,7 +57,7 @@ function SpecifiedBoardPage() {
   return (
     <div className={styles['specified-board-page']}>
       <Link to="/boards">
-        <button>Back</button>
+        <button className={styles['specified-board-page__back-btn']}>Back</button>
         {/* //! использовать Translate */}
       </Link>
       {state?.columnsListState.isLoaded && (

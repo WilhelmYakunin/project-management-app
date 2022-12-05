@@ -35,7 +35,9 @@ function ColumnsList({ dataList, boardId }: IColumnsListProps) {
   }
 
   return (
-    <div className={`${styles['columns-list-wrapper']} ${styles['columns-list']}`}>
+    <div
+      className={`${styles['specified-board-page__columns-list']} ${styles['columns-list-wrapper']} ${styles['columns-list']}`}
+    >
       {!state.isLoaded && <strong>Loading...</strong>}
       {state.error && <strong>{state.error}</strong>}
       {!dataIsLoaded && !state.error && <strong>Похоже, нет ни одного столбца</strong>}
