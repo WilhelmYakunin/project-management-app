@@ -1,6 +1,5 @@
 import React, {BaseSyntheticEvent, useCallback} from 'react'
 
-import tick from './tick.svg'
 import { cn as bem } from '@bem-react/classname'
 import './default.css'
 
@@ -9,7 +8,6 @@ const Select = ({ testid, onChange, value, options }
 
   const onSelect = useCallback((e: BaseSyntheticEvent) => {
     onChange(e.target.value)
-    console.log(e.target.value)
   }, [onChange])
 
   const cn = bem('Select')
@@ -30,7 +28,7 @@ const Select = ({ testid, onChange, value, options }
                 <p className={cn('input-text')}>{option.title}</p>
               </div>
           ))}
-          <img className={cn('icon')} src={tick} alt="arrow" aria-hidden />
+
         </div>
         <ul className={cn('list')}>
           {options.map((option) => (

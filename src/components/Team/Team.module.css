@@ -33,13 +33,13 @@
 }
 
 .team_list:hover{
-  border: #2d8bf0 2px solid;
+  border: #1983aa 2px solid;
   transition: 0.4s;
-  color: #2d8bf0;
+  color: #1983aa;
 }
 
 .team_list:hover .team_ava{
-  background-color: #2d8bf0;
+  background-color: #1983aa;
 }
 
 .team_ava {

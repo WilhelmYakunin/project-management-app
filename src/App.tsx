@@ -1,38 +1,50 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import Spinner from './features/spinner/spinner';
 import './App.css';
+import { Provider as RollbarProvider, ErrorBoundary } from '@rollbar/react';
+import rollbarConfig from './rollbar';
 import { WelcomPage } from './pages/WelcomPage/WelcomPage';
 import { SignIn } from './pages/SignIn/SignIn';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
 import { SignUp } from './pages/SignUp/SignUp';
-import { AuthWrapper } from './components/Auth/Auth';
+import Profile from './pages/profile';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import { Header } from './components/Header/Header';
+import ModalForm from './features/modals/modalForm';
+import { Footer } from './components/Footer/Footer';
+
 import BoardsPage from './pages/boards-page/boards-page';
 import SpecifiedBoardPage from './pages/specified-bard-page/specified-board-page';
 import { NotFound } from './pages/404/404';
+import { AuthWrapper } from './components/Auth/Auth';
 
 const App = () => {
-  localStorage.setItem(
-    'token',
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAwNzM5NzgsImV4cCI6MTY3MDExNzE3OH0.rVT1RZhBmBfPDuon2O_qWMftiAiUkpiOIXGngEyPsiU'
-  );
-
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/project-management-app/" element={<WelcomPage />} />
-        <Route path="/project-management-app/404" element={<NotFound />} />
-        <Route element={<AuthWrapper />}>
-          <Route path="/project-management-app/boards" element={<BoardsPage />} />
-          <Route path="/project-management-app/boards/:id" element={<SpecifiedBoardPage />} />
-        </Route>
-        <Route path="/project-management-app/SignIn" element={<SignIn />} />
-        <Route path="/project-management-app/SignUp" element={<SignUp />} />
-      </Routes>
+    <RollbarProvider config={rollbarConfig}>
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner />}>
+          <Router basename="/project-management-app">
+            <Header />
+            <Routes>
+              <Route path="/" element={<WelcomPage />} />
+              <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/404" element={<NotFound />} />
+            </Routes>
+            <NavLink end to="/boards"></NavLink>
+            <Routes>
+              <Route element={<AuthWrapper />}>
+                <Route path="/boards" element={<BoardsPage />} />
+                <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
+              </Route>
+            </Routes>
 
-      <Footer />
-    </Router>
+            <ModalForm />
+            <Footer />
+          </Router>
+        </Suspense>
+      </ErrorBoundary>
+    </RollbarProvider>
   );
 };
 

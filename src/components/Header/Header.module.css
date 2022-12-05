@@ -14,6 +14,7 @@
 
 .scrolled {
   background-color: rgb(0, 0, 0);
+  white-space: nowrap;
 }
 
 .header_nav{
@@ -26,7 +27,6 @@
   text-decoration: none;
   text-align: center;
   color: whitesmoke;
-  margin: 0 1em;
   border: whitesmoke solid 2px;
   border-radius: 6px;
   padding: 0.7em;
@@ -54,14 +54,26 @@
 }
 
 .header_link:hover {
-  color: #2d8bf0;
+  color: #1983aa;
   transition: 0.4s;
-  border: #2d8bf0 solid 2px;
+  border: #1983aa solid 2px;
 }
 
 .active{
-  color: #2d8bf0;
-  border: #2d8bf0 solid 2px;
+  color: #1983aa;
+  border: #1983aa solid 2px;
+}
+
+@media (max-width: 680px){
+  .header_link, .header_logout{
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 448px){
+  .header_link, .header_logout{
+    font-size: 0.55rem;
+  }
 }
 
 @media (max-width: 680px){

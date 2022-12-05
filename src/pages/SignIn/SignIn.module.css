@@ -35,13 +35,13 @@
 }
 
 .login_form_btn:hover {
-  border: #2d8bf0 solid 2px;
-  color: #2d8bf0;
+  border: #1983aa solid 2px;
+  color: #1983aa;
 }
 
 .login_form_btn:active {
-  border: #2d8bf0 solid 2px;
-  color: #2d8bf0;
+  border: #1983aa solid 2px;
+  color: #1983aa;
 }
 
 .active{

@@ -16,7 +16,7 @@ export const Footer = () => {
         </li>
 
       </ul>
-      <a className={style.footer_rss} target="_blank" href="https://rs.school/react/" rel="noreferrer"></a>
+      <a className={style.footer_rss} target="_blank" href="https://rs.school/react/" rel="noreferrer">.</a>
     </div>
   );
 };
