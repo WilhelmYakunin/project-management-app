@@ -1,3 +1,9 @@
 {
-    "test": { "other": "tests" }
+  "test": { "other": "tests" },
+  "boardsPage": {
+    "boardListItem": {
+      "editBtn": "edit",
+      "deleteBtn": "delete"
+    }
+  }
 }

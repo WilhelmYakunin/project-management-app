@@ -1,3 +1,9 @@
 {
-    "test": { "few": "теста" }
+  "test": { "few": "теста" },
+  "boardsPage": {
+    "boardListItem": {
+      "editBtn": "изменить",
+      "deleteBtn": "удалить"
+    }
+  }
 }
