@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { getModalInfo, getModalStatus, getModalTitleErr } from "../../../app/selectors"
 import { closeModal, onCreate, setErrTitle, noErrTitle } from "../modalsSlice"
 
+import { addColumnToColumnsListState } from "../../../app/reducers/specified-boards-pages-slice"
+
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
 
@@ -27,6 +29,7 @@ const CreateColumnModal = () => {
                 return dispatch(setErrTitle())
             } dispatch(noErrTitle())
             dispatch(onCreate({ operation, ids, data }))
+            .then(({payload}) => dispatch(addColumnToColumnsListState(payload)))
             form.reset()
             dispatch(closeModal())
         }, [dispatch, cn, operation, ids]),

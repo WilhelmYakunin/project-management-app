@@ -107,9 +107,14 @@
             "button5": "Home"
         },
   "boardsPage": {
+    "no_board": "Похоже, нет ни одной доски",
+    "add": "+ Добавить",
     "boardListItem": {
       "editBtn": "изменить",
       "deleteBtn": "удалить"
     }
-  }
+  },
+  "columns": {
+    "no_column": "Ни одного столбца"
+  } 
 }

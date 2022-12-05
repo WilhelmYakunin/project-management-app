@@ -6,6 +6,9 @@ import { IColumnData } from '../columns-item/interfaces';
 import { createColumnInBoard } from '../../utils/API/API-responses';
 import { addColumnToColumnsListState } from '../../app/reducers/specified-boards-pages-slice';
 
+import Spinner from '../spinner/spinner';
+import CreateColumnButton from '../buttons/createColumnButton/createColumnButton';
+
 function ColumnsList({ dataList, boardId }: IColumnsListProps) {
   if (!boardId) alert(`ColumnsList: invalid id of board. id:${boardId}`);
   const dataIsLoaded = dataList && dataList.length !== 0;
@@ -38,15 +41,11 @@ function ColumnsList({ dataList, boardId }: IColumnsListProps) {
     <div
       className={`${styles['specified-board-page__columns-list']} ${styles['columns-list-wrapper']} ${styles['columns-list']}`}
     >
-      {!state.isLoaded && <strong>Loading...</strong>}
+      {!state.isLoaded && <Spinner />}
       {state.error && <strong>{state.error}</strong>}
-      {!dataIsLoaded && !state.error && <strong>Похоже, нет ни одного столбца</strong>}
-      {/* //!использовать Translate */}
+      {!dataIsLoaded && !state.error && <strong>{t('columns').no_column}</strong>}
       {dataIsLoaded && columnsList}
-      <button className={styles['columns-list__add-column-btn']} onClick={addColumnInList}>
-        {t('+ Добавить колонку')}
-        {/* //! использовать Translate */}
-      </button>
+      <CreateColumnButton style={styles['columns-list__add-column-btn']} boardId={boardId} />
     </div>
   );
 }

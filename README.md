@@ -1,6 +1,6 @@
-# projectManagementSystem
+# Project Management App
 
-simple of Canban
+[Backend is deployed and publicly available](https://project-management-app-production-b64f.up.railway.app/api-docs/)
 
 To start develop run
 

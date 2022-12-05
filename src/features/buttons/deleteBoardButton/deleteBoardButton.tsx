@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { BaseSyntheticEvent, useCallback } from "react"
 import { useAppDispatch } from "../../../app/hooks"
 import { useTranslate } from "../../../app/hooks"
 import { openModal } from "../../modals/modalsSlice"
@@ -13,10 +13,13 @@ const DeleteBoardButton = ({boardId } : {boardId: string}) => {
     const cn = bem('Delete-board-button')
 
     const callbacks = {
-        logOut: useCallback(() => 
+        logOut: useCallback((e: BaseSyntheticEvent) => {
+            e.preventDefault()
+            e.stopPropagation()
             dispatch(openModal({type: 'conformationModal', 
-                info: { operation: 'delete-board', ids: { boardId, columnId: 'idle' } }})), 
-        [dispatch, boardId])
+            info: { operation: 'delete-board', ids: { boardId, columnId: 'idle' } }}))
+
+        }, [dispatch, boardId])
     }
 
     return (

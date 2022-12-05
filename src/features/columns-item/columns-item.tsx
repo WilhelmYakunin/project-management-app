@@ -10,14 +10,45 @@ import {
 } from '../../app/reducers/specified-boards-pages-slice';
 import TasksList from '../tasks-list/tasks-list';
 
+import { getInitUsersStatus } from '../../app/selectors'
+import { onInit } from '../modals/modalsSlice'
+
 function ColumnsItem({ data }: IColumnItemProps) {
-  const boardId = data.boardId;
-  const columnId = data._id;
+  const boardId = data.boardId!;
+  const columnId = data._id!;
+  
+  const usersStatus = useAppSelector(getInitUsersStatus)
+  
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.specifiedBoardsPages[`${boardId}`].tasksListState);
   const { t } = useTranslate();
 
   useEffect(() => {
+    async function fetchTasksData() {
+      const response = await getTasksInColumn(boardId, columnId);
+      const result = await response.json();
+  
+      response.status === 200
+        ? dispatch(
+            setTasksListInColumn({
+              boardId,
+              columnId,
+              isLoaded: true,
+              error: null,
+              data: result,
+            })
+          )
+        : dispatch(
+            setTasksListInColumn({
+              boardId,
+              columnId,
+              isLoaded: true,
+              data: state[`${columnId}`].data ?? [],
+              error: `fetchTasksData ERROR! status: ${response.status}, message: ${result.message}`,
+            })
+          );
+    }
+
     if (!state || !state[`${columnId}`])
       dispatch(
         setTasksListInColumn({
@@ -30,32 +61,8 @@ function ColumnsItem({ data }: IColumnItemProps) {
       );
 
     if (!state[`${columnId}`]?.isLoaded || state[`${columnId}`]?.error) fetchTasksData();
-  }, [state]);
-
-  async function fetchTasksData() {
-    const response = await getTasksInColumn(boardId, columnId);
-    const result = await response.json();
-
-    response.status === 200
-      ? dispatch(
-          setTasksListInColumn({
-            boardId,
-            columnId,
-            isLoaded: true,
-            error: null,
-            data: result,
-          })
-        )
-      : dispatch(
-          setTasksListInColumn({
-            boardId,
-            columnId,
-            isLoaded: true,
-            data: state[`${columnId}`].data ?? [],
-            error: `fetchTasksData ERROR! status: ${response.status}, message: ${result.message}`,
-          })
-        );
-  }
+    if (usersStatus !== 'loaded') dispatch(onInit())
+  }, [state, boardId, columnId, usersStatus, dispatch]);
 
   async function onEditClickHandler(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();

@@ -23,7 +23,7 @@ export const onInit = createAsyncThunk(
 
 export const onCreate = createAsyncThunk(
   'create',
-  async ({ operation, ids: { boardId, columnId }, data } 
+  async ({ operation, ids: { boardId, columnId, userId }, data } 
     : { operation: string, ids: { boardId: string, columnId: string, taskId: string, userId: string }, data: object }) => {
     
     const getUrl = () => {
@@ -50,7 +50,7 @@ export const onCreate = createAsyncThunk(
     }
     
     const res = await axios(reqConfig())
-    return res
+    return res.data
   }
 )
 export const loadItem = createAsyncThunk(
@@ -114,7 +114,9 @@ export const onUpdate = createAsyncThunk(
       }
     }
   
-    await axios(reqConfig())
+   const res = await axios(reqConfig())
+
+   return res.data
   }
 )
 
@@ -164,6 +166,7 @@ const modalFromsSlice = createSlice({
       err: null as unknown,
       errTitle: false,
       errDesc: false,
+      newTask: null as any,
     },
     reducers: {
       openModal: (state, action) => {
@@ -194,12 +197,16 @@ const modalFromsSlice = createSlice({
         .addCase(onInit.pending || loadItem.pending || onDelete.pending || onCreate.pending, (state) => {
           state.status = 'wait'
         })
-        .addCase(onInit.fulfilled || onDelete.fulfilled || onCreate.fulfilled, (state, action) => {
+        .addCase(onInit.fulfilled || onDelete.fulfilled, (state, action) => {
           state.users.status = "loaded"
           state.users.partisipants = action.payload
           state.status = 'idle'
           state.modalType = 'unset'
           state.info = { operation: 'idle', ids: idleIds }
+        })
+        .addCase(onCreate.fulfilled, (state, action) => {
+          state.item.status = 'loaded'
+          state.newTask = action.payload
         })
         .addCase(loadItem.fulfilled, (state, action) => {
           state.item.status = 'loaded'
@@ -207,7 +214,6 @@ const modalFromsSlice = createSlice({
         })
         .addCase(onInit.rejected || loadItem.rejected || onDelete.rejected || onCreate.rejected, (state, action) => {
           state.status = 'failed'
-          console.log(action.payload)
           state.err = action.payload
           state.modalType = 'unset'
           state.item.status = 'idle'

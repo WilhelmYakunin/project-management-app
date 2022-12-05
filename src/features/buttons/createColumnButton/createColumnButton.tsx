@@ -7,10 +7,10 @@ import Button from "./button"
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
 
-const CreateColumnButton = ({ boardId } : {boardId: string }) => {
+const CreateColumnButton = ({ boardId, style } : {boardId: string, style?: string }) => {
     const dispatch = useAppDispatch()
     const { t } = useTranslate()
-    const cn = bem('create-task-button')
+    const cn = bem('Create-column-button')
 
     const callbacks = {
         onCreate: useCallback(() => 

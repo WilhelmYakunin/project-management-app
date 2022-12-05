@@ -1,5 +1,9 @@
 .columns-list__item {
+  padding: 15px;
   width: calc(25% - 20px);
   min-height: 200px;
-  border: 2px solid red;
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+  background-color: #22252f;
+  color: whitesmoke;
 }

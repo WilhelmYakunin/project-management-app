@@ -23,7 +23,6 @@ const ConfirmationModal = () => {
             if (operation === 'logout') {
                 dispatch(logOut())
                 dispatch(closeModal())
-                navigate('/')
             } else {
                 dispatch(onDelete({ operation, ids }))
                 dispatch(closeModal())

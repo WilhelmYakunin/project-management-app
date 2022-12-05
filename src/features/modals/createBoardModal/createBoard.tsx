@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { getModalInfo, getModalStatus, getModalTitleErr, getInitUsers } from "../../../app/selectors"
 import { closeModal, onCreate, setErrTitle, noErrTitle } from "../modalsSlice"
 
+import { addBoardToBoardsListState } from "../../../app/reducers/boards-page-slice"
+
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
 
@@ -30,6 +32,8 @@ const CreateBoardModal = () => {
             } 
             dispatch(noErrTitle())
             dispatch(onCreate({ operation, ids, data }))
+            .then(({payload}) => 
+                dispatch(addBoardToBoardsListState(payload)))
             form.reset()
             dispatch(closeModal())
         }, [dispatch, cn, operation, ids]),

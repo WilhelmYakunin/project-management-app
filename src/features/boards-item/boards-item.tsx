@@ -7,10 +7,13 @@ import {
   removeBoardInBoardsListState,
 } from '../../app/reducers/boards-page-slice';
 
+import UpdateBoardButton from '../buttons/updateBoardButton/updateBoardButton';
+import DeleteBoardButton from '../buttons/deleteBoardButton/deleteBoardButton';
+
 function BoardsItem({ data }: IBoardItemProps) {
   const dispatch = useAppDispatch();
   const { t } = useTranslate();
-  const boardId = data._id;
+  const boardId = data._id!;
 
   async function onEditClickHandler(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -53,12 +56,8 @@ function BoardsItem({ data }: IBoardItemProps) {
       <span className={styles['board__title']}>{data.title}</span>
       <span className={styles['board__owner']}>{data.owner}</span>
       <div className={styles['board__actions-wrapper']}>
-        <button className={styles['board__edit-btn']} onClick={onEditClickHandler}>
-          {t('edit')}
-        </button>
-        <button className={styles['board__remove-btn']} onClick={onRemoveClickHandler}>
-          {t('удалить')}
-        </button>
+        <UpdateBoardButton boardId={boardId} />
+        <DeleteBoardButton boardId={boardId} />
       </div>
     </div>
   );

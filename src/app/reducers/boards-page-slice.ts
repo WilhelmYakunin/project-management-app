@@ -20,7 +20,7 @@ const defaultState: IState = {
   boardsListState: {
     isLoaded: false,
     error: null,
-    data: [],
+    data: [] as any,
   },
 };
 

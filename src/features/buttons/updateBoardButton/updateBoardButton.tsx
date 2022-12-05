@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { BaseSyntheticEvent, useCallback } from "react"
 import { useAppDispatch } from "../../../app/hooks"
 import { useTranslate } from "../../../app/hooks"
 import { openModal } from "../../modals/modalsSlice"
@@ -10,12 +10,15 @@ import './default.css'
 const UpdateColumnButton = ({ boardId } : {boardId: string }) => {
     const dispatch = useAppDispatch()
     const { t } = useTranslate()
-    const cn = bem('create-task-button')
+    const cn = bem('Update-board-button')
 
     const callbacks = {
-        onCreate: useCallback(() => 
+        onCreate: useCallback((e: BaseSyntheticEvent) => {
+            e.preventDefault()
+            e.stopPropagation()
             dispatch(openModal({type: 'updateBoard', 
-                info: { operation: 'update-board', ids: { boardId } }})), 
+                info: { operation: 'update-board', ids: { boardId } }}))
+        }, 
         [dispatch, boardId])
     }
 

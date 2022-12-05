@@ -7,6 +7,9 @@ import {
 } from '../../app/reducers/specified-boards-pages-slice';
 import { deleteTask, editTask } from '../../utils/API/API-responses';
 
+import UpdateTaskButton from '../buttons/updateTaskButton/updateTaskButton'
+import DeleteTaskButton from '../buttons/deleteTaskButton/deleteTaskButton';
+
 function TasksItem({ data }: ITasksItemProps) {
   const dispatch = useAppDispatch();
   const { t } = useTranslate();
@@ -55,12 +58,8 @@ function TasksItem({ data }: ITasksItemProps) {
       <span className={styles['task__title']}>{data.title}</span>
       <span className={styles['task__description']}>{data.description}</span>
       <div className={styles['task__actions-wrapper']}>
-        <button className={styles['task__edit-btn']} onClick={onEditClickHandler}>
-          {t('edit task')} {/* //! использовать Translate */}
-        </button>
-        <button className={styles['task__remove-btn']} onClick={onRemoveClickHandler}>
-          {t('удалить task')} {/* //! использовать Translate */}
-        </button>
+        <UpdateTaskButton boardId={data.boardId} columnId={data.columnId} taskId={data._id} userId={data.userId} />
+        <DeleteTaskButton boardId={data.boardId} columnId={data.columnId} taskId={data._id} />
       </div>
     </div>
   );

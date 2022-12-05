@@ -107,9 +107,14 @@
         "button5": "Home"
     },
   "boardsPage": {
+    "no_board": "No a board yet",
+    "add": "+ Add",
     "boardListItem": {
       "editBtn": "edit",
       "deleteBtn": "delete"
     }
-  }
+  },
+  "columns": {
+    "no_column": "Not a column"
+  } 
 }

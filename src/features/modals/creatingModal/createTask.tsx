@@ -3,6 +3,7 @@ import { useTranslate } from "../../../app/hooks"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { getModalInfo, getModalStatus, getInitUsers, getModalTitleErr, getModalDescErr } from "../../../app/selectors"
 import { closeModal, onCreate, setErrTitle, noErrTitle, setErrDesc, noErrDesc } from "../modalsSlice"
+import { addTaskToTasksListState } from "../../../app/reducers/specified-boards-pages-slice"
 
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
@@ -16,7 +17,7 @@ const CreateTaskModal = () => {
     const titleErr = useAppSelector(getModalTitleErr)
     const descErr = useAppSelector(getModalDescErr)
     const cn = bem('Creating-modal')
-
+    
     const callbacks = {
         onReject: useCallback(() => dispatch(closeModal()), [dispatch]),
         onConfirm: useCallback((e: BaseSyntheticEvent) => {
@@ -28,10 +29,10 @@ const CreateTaskModal = () => {
             const order = form[cn('order')].value
             const data = {
                 title,
-                description,
+                description: description === '' ? ' ' : description,
                 users,
                 order: Number(order),
-                userId: Number(ids.userId)
+                userId: ids.userId
             }
             if (title === '') {
                 dispatch(setErrTitle())
@@ -45,6 +46,8 @@ const CreateTaskModal = () => {
             }
             dispatch(noErrDesc())
             dispatch(onCreate({ operation, ids, data }))
+            .then(({payload}) => 
+                dispatch(addTaskToTasksListState(payload)))
             form.reset()
             dispatch(closeModal())
         }, [dispatch, cn, operation, ids]),

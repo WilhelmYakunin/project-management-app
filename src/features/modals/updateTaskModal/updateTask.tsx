@@ -5,6 +5,9 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { getModalInfo, getModalStatus, getInitUsers, getModalTitleErr, getItemLoadStatus, getItemData } from "../../../app/selectors"
 import { closeModal, onUpdate, setErrTitle, noErrTitle, loadItem, setIdle } from "../modalsSlice"
 
+
+import { editColumnInColumnsListState } from "../../../app/reducers/specified-boards-pages-slice" 
+
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
 
@@ -55,6 +58,7 @@ const UpdateTaskModal = () => {
                 return dispatch(setErrTitle())
             } dispatch(noErrTitle())
             dispatch(onUpdate({ operation, ids, data }))
+            .then(({payload}) => dispatch(editColumnInColumnsListState(payload)))
             form.reset()
             dispatch(closeModal())
             dispatch(setIdle())

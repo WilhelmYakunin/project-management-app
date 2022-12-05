@@ -1,19 +1,21 @@
 import styles from './tasks-list.module.css';
-import { useAppDispatch, useAppSelector, useTranslate } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import TasksItem from '../tasks-item/tasks-item';
 import { ITasksListProps } from './interfaces';
 import { ITaskData } from '../tasks-item/interfaces';
 import { createTaskInColumn } from '../../utils/API/API-responses';
 import { addTaskToTasksListState } from '../../app/reducers/specified-boards-pages-slice';
 
+import CreateTaskButton from '../buttons/createTaskButton/createTaskButton';
+
 function TasksList({ dataList, boardId, columnId }: ITasksListProps) {
   const dataIsLoaded = dataList && dataList.length !== 0;
-  const { t } = useTranslate();
   const dispatch = useAppDispatch();
   const state = useAppSelector(
     (state) => state.specifiedBoardsPages[`${boardId}`].tasksListState[`${columnId}`]
   );
-
+  const user = useAppSelector(state => state.user.current)
+ 
   const tasksList = dataList.map((itemData: ITaskData) => (
     <TasksItem key={itemData._id} data={itemData} />
   ));
@@ -40,14 +42,12 @@ function TasksList({ dataList, boardId, columnId }: ITasksListProps) {
     <div
       className={`${styles['column__tasks-list']} ${styles['tasks-list-wrapper']} ${styles['tasks-list']}`}
     >
+      <CreateTaskButton boardId={boardId} columnId={columnId} userId={user.user._id} />
       {!state.isLoaded && <strong>Loading...</strong>}
       {state.error && <strong>{state.error}</strong>}
       {!dataIsLoaded && !state.error && <strong>Похоже, нет ни одной задачи</strong>}
       {/* //!использовать Translate */}
       {dataIsLoaded && tasksList}
-      <button className={styles['tasks-list__add-task-btn']} onClick={addTaskInList}>
-        {t('+ Добавить задачу')} {/* //!использовать Translate */}
-      </button>
     </div>
   );
 }
