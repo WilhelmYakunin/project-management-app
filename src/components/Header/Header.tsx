@@ -1,47 +1,80 @@
 import style from './Header.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import LocaleSelect from '../../features/locales/localesSelect';
 import { useAppDispatch, useAppSelector, useTranslate } from '../../app/hooks';
 import { logoutUser } from '../../app/reducers/user';
+import { useEffect, useState } from 'react';
 
 export const Header = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
   const { t } = useTranslate();
+  const [isScrolled, setIsScrolled] = useState(false);
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrolling);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrolling);
+    };
+  });
+
+  const location = useLocation();
+
+  console.log('hash', location.hash);
+  console.log('pathname', location.pathname);
+  console.log('search', location.search);
+
+  const handleScrolling = (ev: Event) => {
+    const scrolledTop = (ev.target as Document).scrollingElement?.scrollTop ?? 0;
+    setIsScrolled(scrolledTop > 0);
+  };
+
   const logOut = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     e.stopPropagation();
     dispatch(logoutUser(null));
     localStorage.removeItem('auth_token');
     localStorage.removeItem('auth_token_exp_date');
-  }
-  console.log(user);
+    navigate('/project-management-app/');
+  };
   return (
-    <header className={style.header}>
+    <header className={`${style.header} ${isScrolled ? style.scrolled : ''}`}>
       <div>
-        <NavLink
-          to="/project-management-app/"
-          className={style.header_link}>
-          {t('header').button5}
+        <NavLink to="/project-management-app/" className={style.header_link}>
+          {t('header').home}
         </NavLink>
       </div>
       <div className={style.header_nav}>
         <LocaleSelect />
         {user && (
           <>
-            <NavLink
-              to="/project-management-app/"
-              className={({ isActive }) =>
-                isActive ? `${style.header_link} ${style.active}` : style.header_link
-              }
-            >
-              {t('header').button4}
-            </NavLink>
+            {location.pathname !== '/project-management-app/boards' && (
+              <NavLink
+                to="/project-management-app/boards"
+                className={({ isActive }) =>
+                  isActive ? `${style.header_link} ${style.active}` : style.header_link
+                }
+              >
+                {t('header').main}
+              </NavLink>
+            )}
+            {location.pathname === '/project-management-app/boards' && (
+              <NavLink
+                to="/project-management-app/boards"
+                className={({ isActive }) =>
+                  isActive ? `${style.header_link} ${style.active}` : style.header_link
+                }
+              >
+                {t('header').edit}
+              </NavLink>
+            )}
             <button className={style.header_logout} onClick={logOut}>
-            {t('header').button3}
+              {t('header').logout}
             </button>
           </>
-        )} 
+        )}
         {!user && (
           <>
             <NavLink
@@ -50,8 +83,7 @@ export const Header = () => {
                 isActive ? `${style.header_link} ${style.active}` : style.header_link
               }
             >
-              
-              {t('header').button1}
+              {t('header').signin}
             </NavLink>
             <NavLink
               to="/project-management-app/SignUp"
@@ -59,7 +91,7 @@ export const Header = () => {
                 isActive ? `${style.header_link} ${style.active}` : style.header_link
               }
             >
-              {t('header').button2}
+              {t('header').signup}
             </NavLink>
           </>
         )}
@@ -67,4 +99,3 @@ export const Header = () => {
     </header>
   );
 };
-

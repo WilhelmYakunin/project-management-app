@@ -48,7 +48,7 @@ export const SignIn = () => {
       .then((user) => {
         if (user) {
           dispatch(loginUser({user}));
-          navigate('/project-management-app');
+          navigate('/project-management-app/boards');
         }
       })
       .catch(() => {
