@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IBoardData } from '../../features/boards-item/interfaces';
-import { IBoardsListState } from '../../pages/boards-page/interfaces';
-
-export enum EActionKind {
-  setBoardsListState = 'setBoardsListState',
-  addBoardToBoardsListState = 'addBoardToBoardsListState',
-  removeBoardInBoardsListState = 'removeBoardInBoardsListState',
-  editBoardInBoardsListState = 'editBoardInBoardsListState',
-}
 
 export interface IAction {
   type: string;
@@ -16,6 +8,12 @@ export interface IAction {
 
 export interface IState {
   boardsListState: IBoardsListState;
+}
+
+export interface IBoardsListState {
+  isLoaded: boolean;
+  data: IBoardData[];
+  error: null | string;
 }
 
 const defaultState: IState = {

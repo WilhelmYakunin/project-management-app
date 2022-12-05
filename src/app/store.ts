@@ -4,7 +4,7 @@ import userReducer from './reducers/user';
 import localeReducer from '../features/locales/localeSlice';
 import modalReducer from '../features/modals/modalsSlice';
 import boardsPageReducer from './reducers/boards-page-slice';
-import specifiedBoardPageReducer from './reducers/specified-board-page-slice';
+import specifiedBoardsPagesReducer from './reducers/specified-boards-pages-slice';
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +13,7 @@ export const store = configureStore({
     locale: localeReducer,
     modal: modalReducer,
     boardsPage: boardsPageReducer,
-    specifiedBoardPage: specifiedBoardPageReducer,
+    specifiedBoardsPages: specifiedBoardsPagesReducer,
   },
 });
 

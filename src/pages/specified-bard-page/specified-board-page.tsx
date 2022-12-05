@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { setColumnsListState } from '../../app/reducers/specified-board-page-slice';
+import { setColumnsListState } from '../../app/reducers/specified-boards-pages-slice';
 import ColumnsList from '../../features/columns-list/columns-list';
 import { getColumnsListByBoardId } from '../../utils/API/API-responses';
 import styles from './specified-board-page.module.css';
@@ -9,26 +9,27 @@ import styles from './specified-board-page.module.css';
 function SpecifiedBoardPage() {
   const { id } = useParams();
 
-  // const boardPageState = useAppSelector((state) => state.boardsPage.boardsListState);
-
-  // const boardData = boardPageState.data.find(
-  //   (item) => {
-  //     if(!item._id) return null;
-  //     return item._id.toString() === id;
-  //   }
-  // );
-  // if (!boardData) return <strong>data not found</strong>;
-
   const dispatch = useAppDispatch();
-  const state = useAppSelector((state) => state.specifiedBoardPage);
+  const state = useAppSelector((state) => state.specifiedBoardsPages[`${id}`]);
 
   useEffect(() => {
-    if (!state.columnsListState.isLoaded || state.columnsListState.error) fetchColumnsData();
+    if (!state)
+      dispatch(
+        setColumnsListState({
+          boardId: id ?? '',
+          isLoaded: false,
+          error: null,
+          data: [],
+        })
+      );
+
+    if (!state || !state?.columnsListState.isLoaded || state?.columnsListState.error)
+      fetchColumnsData();
   }, []);
 
   async function fetchColumnsData() {
     if (!id) {
-      alert(`SpecifiedBoardPage: invalid id of board. id:${id}`);
+      alert(`SpecifiedBoardPage: invalid id of board. id:${id}`); // предполагается модалка
       return;
     }
     const response = await getColumnsListByBoardId(id);
@@ -37,6 +38,7 @@ function SpecifiedBoardPage() {
     response.status === 200
       ? dispatch(
           setColumnsListState({
+            boardId: id,
             isLoaded: true,
             error: null,
             data: result,
@@ -44,8 +46,9 @@ function SpecifiedBoardPage() {
         )
       : dispatch(
           setColumnsListState({
+            boardId: id,
             isLoaded: true,
-            data: state.columnsListState.data,
+            data: state.columnsListState.data ?? [],
             error: `fetchColumnsData ERROR! status: ${response.status}, message: ${result.message}`,
           })
         );
@@ -54,12 +57,12 @@ function SpecifiedBoardPage() {
   return (
     <div className={styles['specified-board-page']}>
       <Link to="/boards">
-        <button>Back</button>
+        <button className={styles['specified-board-page__back-btn']}>Back</button>
         {/* //! использовать Translate */}
       </Link>
-      {/* {!state.columnsListState.isLoaded && <strong>Loading...</strong>}
-        {state.columnsListState.error && <strong>{state.columnsListState.error}</strong>} */}
-      {state.columnsListState.isLoaded && <ColumnsList dataList={state.columnsListState.data} />}
+      {state?.columnsListState.isLoaded && (
+        <ColumnsList dataList={state?.columnsListState.data} boardId={id ?? ''} />
+      )}
     </div>
   );
 }
