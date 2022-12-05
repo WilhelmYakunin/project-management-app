@@ -2,6 +2,9 @@
     "test": { "few": "теста" },
     "home": "Домой",
     "main": "К доскам",
+    "user": {
+        "button_title": "Редактировать профиль"
+    },
     "confirm_form": {
         "dialog": "Вы уверены, что хотите ",
         "yes": "Да",
@@ -30,6 +33,19 @@
         "task_points": "Балл",
         "orders": "[{\"value\":0,\"title\":\"первая\"},{\"value\":1,\"title\":\"вторая\"}]",
         "title_err": "Заголовок не может быть пустым"
+    },
+    "profile_form": {
+        "title": "Изменение данных пользователя",
+        "new_name": "Введите новое имя",
+        "new_login": "Ввидети новый логин",
+        "new_password": "Введите новый пароль",
+        "button_change": "Поменять",
+        "button_abort": "Отмена",
+        "delete": "Удалить пользователя"
+    },
+    "delete-user": {
+        "modal_title": "Удаление пользователя",
+        "question": "удалиться?"
     },
     "logout": {
         "button_title": "Выйти",

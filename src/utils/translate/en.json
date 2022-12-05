@@ -2,8 +2,11 @@
     "test": { "other": "tests" },
     "home": "Home",
     "main": "Go to main",
+    "user": {
+        "button_title": "Edit profile"
+    },
     "confirm_form": {
-        "dialog": "Are you sure ?",
+        "dialog": "Are you sure ",
         "yes": "Yes",
         "no": "No"
     },
@@ -18,6 +21,31 @@
         "task_points": "Points",
         "orders": "[{\"value\":0,\"title\":\"primary\"},{\"value\":1,\"title\":\"secondary\"}]",
         "title_err": "Title shouldn't be empty"
+    },
+    "update_form": {
+        "yes": "Change",
+        "no": "Cancel",
+        "task_title": "New title",
+        "task_description": "New description",
+        "task_participants": "Partisipant",
+        "task_order": "Order",
+        "task_file": "File",
+        "task_points": "Балл",
+        "orders": "[{\"value\":0,\"title\":\"first\"},{\"value\":1,\"title\":\"second\"}]",
+        "title_err": "Title can't be ommited"
+    },
+    "profile_form": {
+        "title": "Change of user's data",
+        "new_name": "Enter new name",
+        "new_login": "Enter new login",
+        "new_password": "Enter new password",
+        "button_change": "Change",
+        "button_abort": "Cancel",
+        "delete": "Delete user"
+    },
+    "delete-user": {
+        "modal_title": "Delete",
+        "question": "to delete your self?"
     },
     "logout": {
         "button_title": "Log out",

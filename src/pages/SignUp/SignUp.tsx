@@ -54,7 +54,7 @@ export const SignUp = () => {
   return (
     <div>
       <form className={style.login_form} onSubmit={handleSubmit(signup)}>
-        <p className={style.login_form_text}>{t('signun').title}</p>
+        <p className={style.login_form_text}>{t('signup').title}</p>
         <div>
           <input className={style.login_form_input} placeholder="Name" {...register('name')} />
         </div>

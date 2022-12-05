@@ -1,8 +1,9 @@
-.Logout-button {
+.Create-board-button {
     text-decoration: none;
     text-align: center;
     color: whitesmoke;
     border: whitesmoke solid 2px;
+    white-space: nowrap;
     border-radius: 6px;
     padding: 1em;
     transition: 0.4s;
@@ -10,10 +11,11 @@
     background-color: transparent;
   }
   
-  .Logout-button:hover {
+  .Create-board-button:hover {
     color: #1983aa;
     transition: 0.4s;
     border: #1983aa solid 2px;
   }
+
 
 

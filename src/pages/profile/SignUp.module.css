@@ -16,6 +16,10 @@
   font-weight: 500;
 }
 
+.login_form_label {
+  color: whitesmoke;
+}
+
 .login_form_input {
   display: flex;
   flex-direction: column;
@@ -24,6 +28,29 @@
   padding: 0.2em 0.5em;
   margin: 1em 0 0.5em;
   border-radius: 6px;
+}
+
+.login_form_label {
+  width: 15em;
+}
+
+.login_form_delete_user {
+  font-size: 12px;
+  width: 15em;
+  align-self: center;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.login_form_delete_user:hover {
+  cursor: pointer;
+  color: #da6a6d;
+}
+
+
+.login_form_footer {
+  width: 15em;
+  display: flex;
 }
 
 .login_form_btn {
@@ -44,11 +71,10 @@
   color: #1983aa;
 }
 
-.active{
+.active {
   font-weight: 500;
 }
 
-.red{
+.red {
   color: red;
-  margin: 0.2em;
 }

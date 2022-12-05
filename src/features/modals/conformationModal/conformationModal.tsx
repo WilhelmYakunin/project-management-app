@@ -24,8 +24,12 @@ const ConfirmationModal = () => {
                 dispatch(logOut())
                 dispatch(closeModal())
                 navigate('/')
-            } 
-            operation !== 'logout' && dispatch(onDelete({ operation, ids }))
+            } else {
+                dispatch(onDelete({ operation, ids }))
+                dispatch(closeModal())
+                dispatch(logOut())
+                navigate('/')
+            }
         }, [dispatch, navigate, operation, ids]) 
     }
 
