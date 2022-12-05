@@ -5,25 +5,31 @@
   border-bottom: whitesmoke solid 2px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
+.header_nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 .header_link{
-  width: 4vw;
   text-decoration: none;
   text-align: center;
   color: whitesmoke;
-  margin-left: 2em;
+  margin: 0 1em;
   border: whitesmoke solid 2px;
   border-radius: 6px;
   padding: 1em;
-  transform: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
-.header_link:hover{
+.header_link:hover {
   color: #2d8bf0;
-  transform: 0.4s;
+  transition: 0.4s;
   border: #2d8bf0 solid 2px;
 }
 

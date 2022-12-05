@@ -25,6 +25,21 @@
   width: 15vw;
   margin: 0 2em;
   padding: 1em;
+  transition: 0.4s;
+  text-decoration: none;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 1rem;
+}
+
+.team_list:hover{
+  border: #2d8bf0 2px solid;
+  transition: 0.4s;
+  color: #2d8bf0;
+}
+
+.team_list:hover .team_ava{
+  background-color: #2d8bf0;
 }
 
 .team_ava {
@@ -38,33 +53,14 @@
   transition: 0.4s;
 }
 
-.team_ava a {
-  width: 5em;
-  height: 5em;
-  color: transparent;
-  text-decoration: none;
+@media (max-width: 680px){
+  .team_list{
+    font-size: 0.8rem;
+  }
 }
 
-.team_ava:hover {
-  background-color: #2d8bf0;
-  transition: 0.4s;
-}
-
-.team_text {
-  padding: 0.8em;
-  font-size: 0.8rem;
-  line-height: 1rem;
-}
-
-.team_text a {
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  color: whitesmoke;
-  transition: 0.4s;
-}
-
-.team_text a:hover {
-  color: #2d8bf0;
-  transition: 0.4s;
+@media (max-width: 448px){
+  .team_list{
+    font-size: 0.55rem;
+  }
 }
