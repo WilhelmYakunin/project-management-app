@@ -1,21 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IColumnsListState } from '../../pages/specified-bard-page/intefaces';
-
-export enum EActionKind {
-  setBoardsListState = 'setBoardsListState',
-  addBoardToBoardsListState = 'addBoardToBoardsListState',
-  removeBoardInBoardsListState = 'removeBoardInBoardsListState',
-  editBoardInBoardsListState = 'editBoardInBoardsListState',
-}
-
-export interface IAction {
-  type: string;
-  payload: IColumnsListState | string;
-}
-
-export interface IState {
-  columnsListState: IColumnsListState;
-}
+import {
+  IAction,
+  IColumnsListState,
+  IState,
+  ITaskDataState,
+} from '../../pages/specified-bard-page/interfaces';
 
 const defaultState: IState = {
   columnsListState: {
@@ -23,6 +12,7 @@ const defaultState: IState = {
     error: null,
     data: [],
   },
+  tasksListState: {},
 };
 
 const slice = createSlice({
@@ -56,8 +46,14 @@ const slice = createSlice({
     //     ...(action.payload as IBoardData),
     //   };
     // },
+    setTasksListState(state: IState, action: IAction) {
+      const columnId = (action.payload as ITaskDataState).columnId;
+      state.tasksListState[`${columnId}`] = {
+        ...(action.payload as ITaskDataState),
+      };
+    },
   },
 });
 
-export const { setColumnsListState } = slice.actions;
+export const { setColumnsListState, setTasksListState } = slice.actions;
 export default slice.reducer;
