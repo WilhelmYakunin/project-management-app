@@ -1,32 +1,31 @@
 {
-    "test": { "other": "tests" },
-    "signin": {
-        "button": "Sign In",
-        "title": "Log in to your account",
-        "textarea1": "Login",
-        "textarea2": "Password"
-    },
-    "signup": {
-        "button": "Sign Up",
-        "title": "Sign up for your account",
-        "textarea1": "Login",
-        "textarea2": "Password",
-        "textarea3": "Name"
-    }, 
-    "header": {
-        "button1": "SignIn",
-        "button2": "SignUp",
-        "button3": "LogOut",
-        "button4": "Go to Main",
-        "button5": "Home"
-    },
+  "test": { "other": "tests" },
+  "signin": {
+    "button": "Sign In",
+    "title": "Log in to your account",
+    "textarea1": "Login",
+    "textarea2": "Password"
+  },
+  "signup": {
+    "button": "Sign Up",
+    "title": "Sign up for your account",
+    "textarea1": "Login",
+    "textarea2": "Password",
+    "textarea3": "Name"
+  },
+  "header": {
+    "button1": "SignIn",
+    "button2": "SignUp",
+    "button3": "LogOut",
+    "button4": "Go to Main",
+    "button5": "Home"
+  },
   "boardsPage": {
     "boardListItem": {
       "editBtn": "edit",
       "deleteBtn": "delete"
     }
-  }
-    }, 
-    "description":  "Welcome to PM App! PM App is an application used in project management and helps you to visualize the tasks of a team, project, or company.",
-    "team": "Team"
+  },
+  "description": "Welcome to PM App! PM App is an application used in project management and helps you to visualize the tasks of a team, project, or company.",
+  "team": "Team"
 }
