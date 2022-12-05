@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.7ad29668.css",
-    "main.js": "/static/js/main.1ea20845.js",
-    "static/js/787.6ccdce3c.chunk.js": "/static/js/787.6ccdce3c.chunk.js",
-    "static/media/rss.svg?inline": "/static/media/rss.66e800aacc5aaf68c358.svg",
-    "static/media/github.svg": "/static/media/github.6448349ea9cd59c41e6c.svg",
-    "index.html": "/index.html",
-    "main.7ad29668.css.map": "/static/css/main.7ad29668.css.map",
-    "main.1ea20845.js.map": "/static/js/main.1ea20845.js.map",
-    "787.6ccdce3c.chunk.js.map": "/static/js/787.6ccdce3c.chunk.js.map"
+    "main.css": "/puma/static/css/main.d896745d.css",
+    "main.js": "/puma/static/js/main.cdfcb5c7.js",
+    "static/js/787.6ccdce3c.chunk.js": "/puma/static/js/787.6ccdce3c.chunk.js",
+    "static/media/rss.svg?inline": "/puma/static/media/rss.66e800aacc5aaf68c358.svg",
+    "static/media/github.svg": "/puma/static/media/github.6448349ea9cd59c41e6c.svg",
+    "index.html": "/puma/index.html",
+    "main.d896745d.css.map": "/puma/static/css/main.d896745d.css.map",
+    "main.cdfcb5c7.js.map": "/puma/static/js/main.cdfcb5c7.js.map",
+    "787.6ccdce3c.chunk.js.map": "/puma/static/js/787.6ccdce3c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ad29668.css",
-    "static/js/main.1ea20845.js"
+    "static/css/main.d896745d.css",
+    "static/js/main.cdfcb5c7.js"
   ]
 }
