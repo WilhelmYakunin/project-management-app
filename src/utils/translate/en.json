@@ -14,5 +14,11 @@
         "button3": "LogOut",
         "button4": "Go to Main",
         "button5": "Home"
+    },
+  "boardsPage": {
+    "boardListItem": {
+      "editBtn": "edit",
+      "deleteBtn": "delete"
     }
+  }
 }
