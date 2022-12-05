@@ -3,7 +3,7 @@ import counterReducer from '../features/counter/counterSlice';
 import userReducer from './reducers/user';
 import localeReducer from '../features/locales/localeSlice';
 import boardsPageReducer from './reducers/boards-page-slice';
-import specifiedBoardPageReducer from './reducers/specified-board-page-slice';
+import specifiedBoardsPagesReducer from './reducers/specified-boards-pages-slice';
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ export const store = configureStore({
     user: userReducer,
     locale: localeReducer,
     boardsPage: boardsPageReducer,
-    specifiedBoardPage: specifiedBoardPageReducer,
+    specifiedBoardsPages: specifiedBoardsPagesReducer,
   },
 });
 

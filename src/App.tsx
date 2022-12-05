@@ -12,7 +12,7 @@ import SpecifiedBoardPage from './pages/specified-bard-page/specified-board-page
 const App = () => {
   localStorage.setItem(
     'token',
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAxNjU0NTAsImV4cCI6MTY3MDIwODY1MH0.8iNdYT_9qfydHtmzqW9PQNYs9bxGTt8dFWhWrDtRuns'
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAyMzEzOTEsImV4cCI6MTY3MDI3NDU5MX0.zGXIt3-kgFhhojhexu9o8-ZXDPKofhKblooPdzee4eM'
   );
 
   return (
