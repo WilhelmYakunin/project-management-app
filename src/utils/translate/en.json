@@ -1,5 +1,111 @@
 {
-  "test": { "other": "tests" },
+    "test": { "other": "tests" },
+    "home": "Home",
+    "main": "Go to main",
+    "user": {
+        "button_title": "Edit profile"
+    },
+    "confirm_form": {
+        "dialog": "Are you sure ",
+        "yes": "Yes",
+        "no": "No"
+    },
+    "create_form": {
+        "yes": "Create",
+        "no": "Abort",
+        "task_title": "Title",
+        "task_description": "Description",
+        "task_participants": "Partisipan",
+        "task_order": "Order",
+        "task_file": "File",
+        "task_points": "Points",
+        "orders": "[{\"value\":0,\"title\":\"primary\"},{\"value\":1,\"title\":\"secondary\"}]",
+        "title_err": "Title shouldn't be empty"
+    },
+    "update_form": {
+        "yes": "Change",
+        "no": "Cancel",
+        "task_title": "New title",
+        "task_description": "New description",
+        "task_participants": "Partisipant",
+        "task_order": "Order",
+        "task_file": "File",
+        "task_points": "Балл",
+        "orders": "[{\"value\":0,\"title\":\"first\"},{\"value\":1,\"title\":\"second\"}]",
+        "title_err": "Title can't be ommited"
+    },
+    "profile_form": {
+        "title": "Change of user's data",
+        "new_name": "Enter new name",
+        "new_login": "Enter new login",
+        "new_password": "Enter new password",
+        "button_change": "Change",
+        "button_abort": "Cancel",
+        "delete": "Delete user"
+    },
+    "delete-user": {
+        "modal_title": "Delete",
+        "question": "to delete your self?"
+    },
+    "logout": {
+        "button_title": "Log out",
+        "modal_title": "Quit",
+        "question": "to log out?"
+    },
+    "delete-board": {
+        "button_title": "Delete board",
+        "modal_title": "Delete board",
+        "question": "to delete board?"
+    },
+    "delete-column": {
+        "button_title": "Delete column",
+        "modal_title": "Delete column",
+        "question": "to delete column?"
+    },
+    "delete-task": {
+        "button_title": "Delete task",
+        "modal_title": "Delete task",
+        "question": "to delete task?"
+    },
+    "create-board": {
+        "button_title": "Create board",
+        "modal_title": "Create board"
+    },
+    "create-column": {
+        "button_title": "Create column",
+        "modal_title": "Create board"
+    },
+    "create-task": {
+        "button_title": "Create task",
+        "modal_title": "Create tas"
+    },
+    "update-task": {
+        "button_title": "Update task",
+        "modal_title": "Update task"
+    },
+    "update-column": {
+        "button_title": "Update column",
+        "modal_title": "Update column"
+    },
+    "update-board": {
+        "button_title": "Update column",
+        "modal_title": "Update column"
+    },
+    "signin": {
+        "button": "Sign In",
+        "title": "Log in to your account"
+    },
+    "signup": {
+        "button": "Sign Up",
+        "title": "Sign up for your account"
+    }, 
+    "header": {
+        "button1": "SignIn",
+        "button2": "SignUp",
+        "button3": "LogOut",
+        "button4": "Go to Main",
+        "button5": "Home"
+    },
   "boardsPage": {
     "boardListItem": {
       "editBtn": "edit",

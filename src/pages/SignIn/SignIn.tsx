@@ -2,10 +2,9 @@ import style from './SignIn.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useTranslate } from '../../app/hooks';
 import { loginUser } from '../../app/reducers/user';
 import { loginService, userService } from '../../services';
-import { User } from '../../models';
 import { useNavigate } from 'react-router-dom';
 
 const loginSchema = yup
@@ -27,6 +26,7 @@ type LoginFormData = {
 export const SignIn = () => {
   const dispatch = useAppDispatch();
   let navigate = useNavigate();
+  const { t } = useTranslate();
 
   const {
     register,
@@ -42,27 +42,30 @@ export const SignIn = () => {
         login: login,
         password: password,
       })
-      .then((user: User | undefined) => {
+      .then(async (id) => {
+        return userService.getUserById(id)
+      })
+      .then((user) => {
         if (user) {
-          dispatch(loginUser(user));
+          dispatch(loginUser({user}));
           navigate('/');
         }
       })
-      .catch(() => {
-        alert('The username or password is incorrect');
+      .catch((err) => {
+        alert(err);
       });
   };
 
   return (
     <div>
       <form className={style.login_form} onSubmit={handleSubmit((data) => login(data))}>
-        <p className={style.login_form_text}>Log in to your account</p>
+        <p className={style.login_form_text}>{t('signin').title}</p>
         <input className={style.login_form_input} placeholder="login" {...register('login')} />
         <p className={style.red}>{errors.login?.message}</p>
         <input className={style.login_form_input} type="password" placeholder="Password" {...register('password')} />
         <p className={style.red}>{errors.password?.message}</p>
         <button type="submit" className={style.login_form_input + ' ' + style.login_form_btn}>
-          Log In
+          {t('signin').button}
         </button>
       </form>
     </div>

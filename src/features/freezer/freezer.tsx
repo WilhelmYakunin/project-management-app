@@ -8,13 +8,7 @@ const WindowFreezer = ({ children } : { children: React.ReactNode}) => {
     const frame = useRef<any>()
 
     useEffect(() => {
-        let top = 0;
-        if (window.innerWidth > frame.current.clientHeight) {
-          top = Math.max(top, (window.innerHeight - frame.current.clientHeight) - top)
-        }
-        frame.current.style.marginTop = `${top}px`
         document.body.style.overflow = 'hidden'
-
         return () => {
           document.body.style.overflow = 'auto'
         }

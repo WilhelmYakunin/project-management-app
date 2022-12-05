@@ -1,39 +1,45 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import Spinner from './features/spinner/spinner';
 import './App.css';
+import { Provider as RollbarProvider, ErrorBoundary } from '@rollbar/react';
+import rollbarConfig from './rollbar';
 import { WelcomPage } from './pages/WelcomPage/WelcomPage';
 import { SignIn } from './pages/SignIn/SignIn';
+import { SignUp } from './pages/SignUp/SignUp';
+import Profile from './pages/profile';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { Header } from './components/Header/Header';
+import ModalForm from './features/modals/modalForm';
 import { Footer } from './components/Footer/Footer';
-import { SignUp } from './pages/SignUp/SignUp';
+
 import BoardsPage from './pages/boards-page/boards-page';
 import SpecifiedBoardPage from './pages/specified-bard-page/specified-board-page';
 
 const App = () => {
-  localStorage.setItem(
-    'token',
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAyMzEzOTEsImV4cCI6MTY3MDI3NDU5MX0.zGXIt3-kgFhhojhexu9o8-ZXDPKofhKblooPdzee4eM'
-  );
-
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<WelcomPage />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-      </Routes>
+    <RollbarProvider config={rollbarConfig}>
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner />}>
+        <Router basename='/project-management-app'>
+          <Header />
+          <Routes>
+            <Route path="/" element={<WelcomPage />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/profile/:id" element={<Profile />} />
+          </Routes>
+          <NavLink end to="/boards"></NavLink>
+          <Routes>
+            <Route path="/boards" element={<BoardsPage />} />
+            <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
+          </Routes>
 
-      <NavLink end to="/boards">
-        BoardsPage
-      </NavLink>
-      <Routes>
-        <Route path="/boards" element={<BoardsPage />} />
-        <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
-      </Routes>
-
-      <Footer />
-    </Router>
+          <ModalForm />
+          <Footer />
+        </Router>
+        </Suspense>
+      </ErrorBoundary>
+    </RollbarProvider>
   );
 };
 

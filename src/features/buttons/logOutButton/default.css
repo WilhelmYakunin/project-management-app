@@ -1,0 +1,19 @@
+.Logout-button {
+    text-decoration: none;
+    text-align: center;
+    color: whitesmoke;
+    border: whitesmoke solid 2px;
+    border-radius: 6px;
+    padding: 1em;
+    transition: 0.4s;
+    cursor: pointer;
+    background-color: transparent;
+  }
+  
+  .Logout-button:hover {
+    color: #1983aa;
+    transition: 0.4s;
+    border: #1983aa solid 2px;
+  }
+
+

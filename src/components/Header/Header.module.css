@@ -5,29 +5,35 @@
   border-bottom: whitesmoke solid 2px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  white-space: nowrap;
+}
+
+.header_nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .header_link{
-  width: 4vw;
   text-decoration: none;
   text-align: center;
   color: whitesmoke;
-  margin-left: 2em;
   border: whitesmoke solid 2px;
   border-radius: 6px;
   padding: 1em;
-  transform: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
-.header_link:hover{
-  color: #2d8bf0;
-  transform: 0.4s;
-  border: #2d8bf0 solid 2px;
+.header_link:hover {
+  color: #1983aa;
+  transition: 0.4s;
+  border: #1983aasolid 2px;
 }
 
 .active{
-  color: #2d8bf0;
-  border: #2d8bf0 solid 2px;
+  color: #1983aa;
+  border: #1983aa solid 2px;
 }

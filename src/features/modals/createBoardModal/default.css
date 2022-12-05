@@ -1,0 +1,133 @@
+.Update-board-modal {
+    height: 50vh;
+    width: 100vw;
+    display: flex;
+    
+    animation: animate ease-in-out .5s;
+}
+
+@keyframes animate {
+    from { opacity: 0 }
+    to { opacity: 1}
+  }
+
+.Update-board-modal_default {
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #22252f;
+    border-radius: 2%;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .Update-board-modal_default {
+      width: 60%;
+      height: 70%;
+    }
+}
+  
+@media (min-width: 992px) {
+    .Update-board-modal_default {
+      width: 50%;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .Update-board-modal_default {
+      width: 50%;
+    }
+}
+
+.Update-board-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+    border-bottom: 1px solid #1983aa;
+
+}
+
+.Update-board-modal-close_default > button {
+    border: none;
+    color: #1983aa;
+    background-color: transparent;
+}
+
+.Update-board-modal-close_default > button:hover {
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+    box-shadow: #1983aa 0px 0px 2px
+}
+
+.Update-board-modal-body_default {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Update-board-modal-body-item_default {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.Update-board-modal-body-item--label_default {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.Update-board-modal-body-item--err_default {
+    position: absolute;
+    align-items: flex-end;
+    color: red;
+}
+
+.Update-board-modal-body-item--input_default {
+    margin-top: 20px;
+    padding: 0;
+    width: 70%;
+}
+
+.Update-board-modal-body-item--numberInput_default {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Update-board-modal-footer_default {
+    min-height: 30px;
+    padding: 10px;
+    border-top: 1px solid #1983aa;
+}
+
+.Update-board-modal-footer_button_default {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    color: white;
+    width: 50%;
+    background-color: transparent;
+    height: 100%;
+}
+
+.Update-board-modal-footer_button_default:first-child {
+    border-right: 1px solid #1983aa;
+}
+
+.Update-board-modal-footer_button_default:hover,
+.Update-board-modal-footer_button_default:focus {
+    transition: box-shadow .5s ease-in-out;
+    box-shadow: inset 0 0 0 2em #1983aa;
+}
+
+.Update-board-modal-footer_button_default:disabled {
+    cursor: not-allowed;
+    background-color: gray;
+
+    box-shadow: inset 0 0 0 2em gray;
+}

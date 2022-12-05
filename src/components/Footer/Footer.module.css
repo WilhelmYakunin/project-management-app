@@ -29,7 +29,7 @@
 }
 
 .footer_list li a:hover{
-  color: #2d8bf0;
+  color: #1983aa;
   transition: 0.4s;
 }
 
@@ -46,4 +46,47 @@
 .footer_rss:focus{
     filter: invert(53%) sepia(67%) saturate(4182%) hue-rotate(193deg) brightness(98%) contrast(92%);
     transition: 0.4s;
+}
+
+@media (max-width: 768px){
+
+  .footer_list{
+    width: 50vw;
+  }
+
+  .footer_list li a, 
+  .footer{
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 680px){
+
+  .footer_list{
+    width: 50vw;
+  }
+
+  .footer_list li a, 
+  .footer{
+    font-size: 0.7rem;
+  }
+
+  .footer_rss{
+    background-image: url('./rss.svg?inline');
+    width: 4.8em;
+    height: 1.5em;
+  }
+}
+
+@media (max-width: 448px){
+  .footer_list li a, 
+  .footer{
+    font-size: 0.45rem;
+  }
+  .footer_rss{
+    background-image: url('./rss.svg?inline');
+    width: 3.8em;
+    height: 1em;
+  }
+ 
 }
