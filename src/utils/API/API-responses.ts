@@ -75,7 +75,7 @@ export async function getTasksInColumn(boardId: string, columnId: string) {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: token,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
   });
 
@@ -93,7 +93,7 @@ export async function createColumnInBoard(body: ICreateColumnBody, boardId: stri
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: token,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
     body: JSON.stringify(body),
   });
@@ -107,7 +107,7 @@ export async function deleteColumn(columnData: IColumnData) {
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: token,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
   });
 
@@ -120,7 +120,7 @@ export async function editColumn(columnData: IColumnData, body: ICreateColumnBod
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: token,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
     body: JSON.stringify(body),
   });
@@ -138,7 +138,7 @@ export async function createTaskInColumn(
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: token,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
     body: JSON.stringify(body),
   });
@@ -154,7 +154,7 @@ export async function deleteTask(taskData: ITaskData) {
       headers: {
         accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: token,
+        Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
       },
     }
   );
@@ -170,7 +170,7 @@ export async function editTask(taskData: ITaskData, body: ICreateColumnBody) {
       headers: {
         accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: token,
+        Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
       },
       body: JSON.stringify(body),
     }

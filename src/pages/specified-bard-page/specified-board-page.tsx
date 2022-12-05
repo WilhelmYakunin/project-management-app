@@ -13,6 +13,33 @@ function SpecifiedBoardPage() {
   const state = useAppSelector((state) => state.specifiedBoardsPages[`${id}`]);
 
   useEffect(() => {
+    async function fetchColumnsData() {
+      if (!id) {
+        alert(`SpecifiedBoardPage: invalid id of board. id:${id}`); // предполагается модалка
+        return;
+      }
+      const response = await getColumnsListByBoardId(id);
+      const result = await response.json();
+  
+      response.status === 200
+        ? dispatch(
+            setColumnsListState({
+              boardId: id,
+              isLoaded: true,
+              error: null,
+              data: result,
+            })
+          )
+        : dispatch(
+            setColumnsListState({
+              boardId: id,
+              isLoaded: true,
+              data: state.columnsListState.data ?? [],
+              error: `fetchColumnsData ERROR! status: ${response.status}, message: ${result.message}`,
+            })
+          );
+    }
+    
     if (!state)
       dispatch(
         setColumnsListState({
@@ -25,34 +52,9 @@ function SpecifiedBoardPage() {
 
     if (!state || !state?.columnsListState.isLoaded || state?.columnsListState.error)
       fetchColumnsData();
-  }, []);
+  }, [dispatch, id, state]);
 
-  async function fetchColumnsData() {
-    if (!id) {
-      alert(`SpecifiedBoardPage: invalid id of board. id:${id}`); // предполагается модалка
-      return;
-    }
-    const response = await getColumnsListByBoardId(id);
-    const result = await response.json();
 
-    response.status === 200
-      ? dispatch(
-          setColumnsListState({
-            boardId: id,
-            isLoaded: true,
-            error: null,
-            data: result,
-          })
-        )
-      : dispatch(
-          setColumnsListState({
-            boardId: id,
-            isLoaded: true,
-            data: state.columnsListState.data ?? [],
-            error: `fetchColumnsData ERROR! status: ${response.status}, message: ${result.message}`,
-          })
-        );
-  }
 
   return (
     <div className={styles['specified-board-page']}>
