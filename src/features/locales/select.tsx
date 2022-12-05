@@ -9,7 +9,6 @@ const Select = ({ testid, onChange, value, options }
 
   const onSelect = useCallback((e: BaseSyntheticEvent) => {
     onChange(e.target.value)
-    console.log(e.target.value)
   }, [onChange])
 
   const cn = bem('Select')

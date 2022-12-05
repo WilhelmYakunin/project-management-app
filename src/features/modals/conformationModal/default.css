@@ -1,0 +1,97 @@
+.Conformation-modal {
+    height: 100vh;
+    display: flex;
+
+    animation: animate ease-in-out .5s;
+}
+
+@keyframes animate {
+    from { opacity: 0 }
+    to { opacity: 1}
+  }
+
+.Conformation-modal_default {
+    width: 70%;
+    height: 30%;
+    background-color: #22252f;
+    margin: auto auto;
+    border-radius: 2%;
+
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .Conformation-modal_default {
+      width: 70%;
+      height: 30%;
+    }
+}
+  
+@media (min-width: 992px) {
+    .Conformation-modal_default {
+      width: 50%;
+      height: 30%;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .Conformation-modal_default {
+      width: 30%;
+      height: 30%;
+    }
+}
+
+.Conformation-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+    border-bottom: 1px solid #da6a6d;
+
+}
+
+.Conformation-modal-close_default > button {
+    border: none;
+    color: #da6a6d;
+    background-color: transparent;
+}
+
+.Conformation-modal-close_default > button:hover {
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+    box-shadow: #da6a6d 0px 0px 2px
+}
+
+.Conformation-modal-footer_default {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+
+    padding: 10px;
+    border-top: 1px solid #da6a6d;
+}
+
+.Conformation-modal-footer_button_default {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    color: white;
+    width: 50%;
+    background-color: transparent;
+    height: 100%;
+}
+
+.Conformation-modal-footer_button_default:first-child {
+    border-right: 1px solid #da6a6d;
+}
+
+.Conformation-modal-footer_button_default:hover,
+.Conformation-modal-footer_button_default:focus {
+    transition: box-shadow .5s ease-in-out;
+    box-shadow: inset 0 0 0 2em #da6a6d;
+}
