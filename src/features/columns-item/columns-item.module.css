@@ -1,5 +1,65 @@
 .columns-list__item {
   width: calc(25% - 20px);
-  min-height: 200px;
-  border: 2px solid red;
+}
+
+.column-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  height: auto;
+  background-color: #fff;
+  color: #1983aa;
+  border: #1983aa solid 2px;
+  border-radius: 6px;
+}
+
+.column__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 5px;
+  padding: 2px 5px;
+  border-bottom: #1983aa solid 2px;
+}
+
+.column__title {
+  font-size: 1.3rem;
+  overflow: auto;
+}
+
+.column__title::-webkit-scrollbar {
+  display: none;
+}
+
+.column__title:hover::-webkit-scrollbar {
+  display: block;
+  width: 50%;
+  height: 3px;
+}
+
+.column__title::-webkit-scrollbar-button {
+  display: none;
+}
+
+.column__title::-webkit-scrollbar-track-piece {
+  background-color: #000000;
+}
+
+.column__title::-webkit-scrollbar-thumb {
+  background-color: #1983aa;
+}
+
+.column__actions-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.column__edit-btn {
+
+}
+
+.column__remove-btn {
+
 }

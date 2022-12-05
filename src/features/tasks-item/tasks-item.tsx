@@ -52,8 +52,10 @@ function TasksItem({ data }: ITasksItemProps) {
 
   return (
     <div className={`${styles['tasks-list__item']} ${styles['task-wrapper']} ${styles['task']}`}>
-      <span className={styles['task__title']}>{data.title}</span>
-      <span className={styles['task__description']}>{data.description}</span>
+      <div className={styles['task__data-wrapper']}>
+        <span className={styles['task__title']}>{data.title}</span>
+        <span className={styles['task__description']}>{data.description}</span>
+      </div>
       <div className={styles['task__actions-wrapper']}>
         <button className={styles['task__edit-btn']} onClick={onEditClickHandler}>
           {t('edit task')} {/* //! использовать Translate */}

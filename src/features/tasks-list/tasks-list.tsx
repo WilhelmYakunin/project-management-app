@@ -37,15 +37,15 @@ function TasksList({ dataList, boardId, columnId }: ITasksListProps) {
   }
 
   return (
-    <div
-      className={`${styles['column__tasks-list']} ${styles['tasks-list-wrapper']} ${styles['tasks-list']}`}
-    >
+    <div className={`${styles['column__tasks-wrapper']}`}>
       {!state.isLoaded && <strong>Loading...</strong>}
       {state.error && <strong>{state.error}</strong>}
       {!dataIsLoaded && !state.error && <strong>Похоже, нет ни одной задачи</strong>}
       {/* //!использовать Translate */}
-      {dataIsLoaded && tasksList}
-      <button className={styles['tasks-list__add-task-btn']} onClick={addTaskInList}>
+      <div className={`${styles['column__tasks-list']} ${styles['tasks-list']}`}>
+        {dataIsLoaded && tasksList}
+      </div>
+      <button className={styles['column__add-task-btn']} onClick={addTaskInList}>
         {t('+ Добавить задачу')} {/* //!использовать Translate */}
       </button>
     </div>

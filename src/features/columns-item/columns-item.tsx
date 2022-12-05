@@ -89,15 +89,18 @@ function ColumnsItem({ data }: IColumnItemProps) {
     <div
       className={`${styles['columns-list__item']} ${styles['column-wrapper']} ${styles['column']}`}
     >
-      <span className={styles['column__title']}>{data.title}</span>
-      <div className={styles['column__actions-wrapper']}>
-        <button className={styles['column__edit-btn']} onClick={onEditClickHandler}>
-          {t('edit')} {/* //! использовать Translate */}
-        </button>
-        <button className={styles['column__remove-btn']} onClick={onRemoveClickHandler}>
-          {t('удалить')} {/* //! использовать Translate */}
-        </button>
+      <div className={styles['column__header']}>
+        <span className={styles['column__title']}>{data.title}</span>
+        <div className={styles['column__actions-wrapper']}>
+          <button className={styles['column__edit-btn']} onClick={onEditClickHandler}>
+            {t('edit')} {/* //! использовать Translate */}
+          </button>
+          <button className={styles['column__remove-btn']} onClick={onRemoveClickHandler}>
+            {t('удалить')} {/* //! использовать Translate */}
+          </button>
+        </div>
       </div>
+
       {/* {!state[`${columnId}`]?.isLoaded && <strong>Loading...</strong>}
       {state[`${columnId}`]?.error && <strong>{state[`${columnId}`]?.error}</strong>} */}
       {state[`${columnId}`]?.isLoaded && (
