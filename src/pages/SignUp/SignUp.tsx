@@ -54,26 +54,21 @@ export const SignUp = () => {
   return (
     <div>
       <form className={style.login_form} onSubmit={handleSubmit(signup)}>
-        <p className={style.login_form_text}>{t('signun').title}</p>
+        <p className={style.login_form_text}>{t('signup').title}</p>
         <div>
-          <input className={style.login_form_input} placeholder="Name" {...register('name')} />
+          <input className={style.login_form_input} placeholder={t('signup').textarea3} {...register('name')} />
         </div>
         <p className={style.red}>{errors.name?.message}</p>
         <div>
-          <input className={style.login_form_input} placeholder="Login" {...register('login')} />
+          <input className={style.login_form_input} placeholder={t('signup').textarea1} {...register('login')} />
         </div>
         <p className={style.red}>{errors.login?.message}</p>
         <div>
-          <input
-            className={style.login_form_input}
-            type="password"
-            placeholder="Password"
-            {...register('password')}
-          />
+          <input className={style.login_form_input} type="password" placeholder={t('signup').textarea2} {...register('password')} />
         </div>
         <p className={style.red}>{errors.password?.message}</p>
         <button type="submit" className={style.login_form_input + ' ' + style.login_form_btn}>
-          {t('signun').button}
+          {t('signup').button}
         </button>
       </form>
     </div>

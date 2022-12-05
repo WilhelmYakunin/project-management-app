@@ -22,9 +22,28 @@
   margin: 0 1em;
   border: whitesmoke solid 2px;
   border-radius: 6px;
-  padding: 1em;
+  padding: 0.7em;
   transition: 0.4s;
   cursor: pointer;
+  font-size: 1rem;
+}
+.header_logout{
+  text-decoration: none;
+  text-align: center;
+  color: whitesmoke;
+  margin: 0 1em;
+  border: whitesmoke solid 2px;
+  border-radius: 6px;
+  padding: 0.7em;
+  transition: 0.4s;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: transparent;
+}
+.header_logout:hover {
+  color: #2d8bf0;
+  transition: 0.4s;
+  border: #2d8bf0 solid 2px;
 }
 
 .header_link:hover {
@@ -36,4 +55,16 @@
 .active{
   color: #2d8bf0;
   border: #2d8bf0 solid 2px;
+}
+
+@media (max-width: 680px){
+  .header_link, .header_logout{
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 448px){
+  .header_link, .header_logout{
+    font-size: 0.55rem;
+  }
 }

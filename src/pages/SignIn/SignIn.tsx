@@ -60,9 +60,9 @@ export const SignIn = () => {
     <div>
       <form className={style.login_form} onSubmit={handleSubmit((data) => login(data))}>
         <p className={style.login_form_text}>{t('signin').title}</p>
-        <input className={style.login_form_input} placeholder="login" {...register('login')} />
+        <input className={style.login_form_input} placeholder={t('signin').textarea1} {...register('login')} />
         <p className={style.red}>{errors.login?.message}</p>
-        <input className={style.login_form_input} type="password" placeholder="Password" {...register('password')} />
+        <input className={style.login_form_input} type="password" placeholder={t('signin').textarea2} {...register('password')} />
         <p className={style.red}>{errors.password?.message}</p>
         <button type="submit" className={style.login_form_input + ' ' + style.login_form_btn}>
           {t('signin').button}

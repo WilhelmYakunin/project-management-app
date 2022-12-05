@@ -21,11 +21,8 @@ export const Header = () => {
       <div>
         <NavLink
           to="/project-management-app/"
-          className={({ isActive }) =>
-            isActive ? `${style.header_link} ${style.active}` : style.header_link
-          }
-        >
-          Home
+          className={style.header_link}>
+          {t('header').button5}
         </NavLink>
       </div>
       <div className={style.header_nav}>
@@ -38,10 +35,10 @@ export const Header = () => {
                 isActive ? `${style.header_link} ${style.active}` : style.header_link
               }
             >
-              Go to Main
+              {t('header').button4}
             </NavLink>
-            <button className={style.header_link} onClick={logOut}>
-              Log Out
+            <button className={style.header_logout} onClick={logOut}>
+            {t('header').button3}
             </button>
           </>
         )} 
