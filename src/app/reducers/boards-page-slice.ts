@@ -7,6 +7,7 @@ export interface IAction {
 }
 
 export interface IState {
+  searchInputValue: string;
   boardsListState: IBoardsListState;
 }
 
@@ -17,6 +18,7 @@ export interface IBoardsListState {
 }
 
 const defaultState: IState = {
+  searchInputValue: '',
   boardsListState: {
     isLoaded: false,
     error: null,
@@ -28,6 +30,15 @@ const slice = createSlice({
   name: 'boardsPage',
   initialState: defaultState,
   reducers: {
+    setSearchInputValue(state: IState, action: IAction) {
+      const searchInputValue = (action.payload as string).trim();
+      state.searchInputValue = searchInputValue;
+
+      if (state.boardsListState.data && searchInputValue)
+        state.boardsListState.data = state.boardsListState.data.filter((itemData) =>
+          itemData.title.toLowerCase().includes(searchInputValue.toLowerCase())
+        );
+    },
     setBoardsListState(state: IState, action: IAction) {
       state.boardsListState = action.payload as IBoardsListState;
     },
@@ -59,6 +70,7 @@ const slice = createSlice({
 });
 
 export const {
+  setSearchInputValue,
   setBoardsListState,
   addBoardToBoardsListState,
   removeBoardInBoardsListState,

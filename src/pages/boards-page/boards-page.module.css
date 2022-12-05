@@ -3,5 +3,21 @@
   width: 100%;
   max-width: 80vw;
   height: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.boards-page__search-input {
+  width: calc(25% - 20px);
+  align-self: center;
+  color: #1983aa;
+  border: #1983aa solid 2px;
+  white-space: nowrap;
+  border-radius: 6px;
+  padding: 1em;
+  transition: 0.4s;
+  cursor: pointer;
+  background-color: transparent;
 }
