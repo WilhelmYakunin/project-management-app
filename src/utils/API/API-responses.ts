@@ -7,7 +7,7 @@ export async function getBoardsList() {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `${localStorage.getItem('token')}`,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
   });
 
@@ -20,7 +20,7 @@ export async function pushNewBoardToList(body: IBoardData) {
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `${localStorage.getItem('token')}`,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
     body: JSON.stringify(body),
   });
@@ -34,7 +34,7 @@ export async function editBoardById(id: string, body: IBoardData) {
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `${localStorage.getItem('token')}`,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
     body: JSON.stringify(body),
   });
@@ -48,7 +48,7 @@ export async function deleteBoardById(id: string) {
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `${localStorage.getItem('token')}`,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
   });
 
@@ -60,7 +60,7 @@ export async function getColumnsListByBoardId(boardId: string) {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `${localStorage.getItem('token')}`,
+      Authorization: 'Bearer ' + localStorage.getItem('auth_token'),
     },
   });
 

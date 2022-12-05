@@ -66,6 +66,12 @@
     box-shadow: #da6a6d 0px 0px 2px
 }
 
+.Conformation-modal-body {
+   align-self: center;
+
+    animation: animate ease-in-out .5s;
+}
+
 .Conformation-modal-footer_default {
     display: flex;
     align-items: center;

@@ -48,11 +48,11 @@ export const SignIn = () => {
       .then((user) => {
         if (user) {
           dispatch(loginUser({user}));
-          navigate('/project-management-app');
+          navigate('/');
         }
       })
-      .catch(() => {
-        alert('The username and/ or password is incorrect');
+      .catch((err) => {
+        alert(err);
       });
   };
 

@@ -1,54 +1,45 @@
 import style from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import LocaleSelect from '../../features/locales/localesSelect';
-import { useAppDispatch, useAppSelector, useTranslate } from '../../app/hooks';
-import { logoutUser } from '../../app/reducers/user';
+import { useAppSelector, useTranslate } from '../../app/hooks';
+import LogOutButton from '../../features/buttons/logOutButton/logOutButton';
+import CreateBoardButton from '../../features/buttons/createBoardButton/createBoardButton';
 
 export const Header = () => {
-  const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.current);
   const { t } = useTranslate();
-  const logOut = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    dispatch(logoutUser(null));
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('auth_token_exp_date');
-  }
-  console.log(user);
+
   return (
     <header className={style.header}>
       <div>
         <NavLink
-          to="/project-management-app/"
+          to="/"
           className={({ isActive }) =>
             isActive ? `${style.header_link} ${style.active}` : style.header_link
           }
         >
-          Home
+          {t('home')}
         </NavLink>
       </div>
       <div className={style.header_nav}>
-        <LocaleSelect />
         {user && (
           <>
+            <CreateBoardButton />
             <NavLink
-              to="/project-management-app/"
+              to="/boards"
               className={({ isActive }) =>
                 isActive ? `${style.header_link} ${style.active}` : style.header_link
               }
             >
-              Go to Main
+              {t('main')}
             </NavLink>
-            <button className={style.header_link} onClick={logOut}>
-              Log Out
-            </button>
+            <LogOutButton />
           </>
         )} 
         {!user && (
           <>
             <NavLink
-              to="/project-management-app/SignIn"
+              to="/SignIn"
               className={({ isActive }) =>
                 isActive ? `${style.header_link} ${style.active}` : style.header_link
               }
@@ -57,7 +48,7 @@ export const Header = () => {
               {t('header').button1}
             </NavLink>
             <NavLink
-              to="/project-management-app/SignUp"
+              to="/SignUp"
               className={({ isActive }) =>
                 isActive ? `${style.header_link} ${style.active}` : style.header_link
               }
@@ -66,6 +57,7 @@ export const Header = () => {
             </NavLink>
           </>
         )}
+        <LocaleSelect />
       </div>
     </header>
   );

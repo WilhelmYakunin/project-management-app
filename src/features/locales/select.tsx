@@ -29,7 +29,7 @@ const Select = ({ testid, onChange, value, options }
                 <p className={cn('input-text')}>{option.title}</p>
               </div>
           ))}
-          <img className={cn('icon')} src={tick} alt="arrow" aria-hidden />
+
         </div>
         <ul className={cn('list')}>
           {options.map((option) => (

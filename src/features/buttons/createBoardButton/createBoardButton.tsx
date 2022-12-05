@@ -10,7 +10,7 @@ import './default.css'
 const CreateBoardButton = () => {
     const dispatch = useAppDispatch()
     const { t } = useTranslate()
-    const cn = bem('create-task-button')
+    const cn = bem('Create-board-button')
 
     const callbacks = {
         onCreate: useCallback(() => 

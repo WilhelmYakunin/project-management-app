@@ -7,6 +7,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  white-space: nowrap;
 }
 
 .header_nav{
@@ -19,7 +20,6 @@
   text-decoration: none;
   text-align: center;
   color: whitesmoke;
-  margin: 0 1em;
   border: whitesmoke solid 2px;
   border-radius: 6px;
   padding: 1em;

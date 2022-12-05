@@ -1,40 +1,40 @@
 import React from 'react';
 import './App.css';
+import { Provider as RollbarProvider, ErrorBoundary } from '@rollbar/react';
+import rollbarConfig from './rollbar';
 import { WelcomPage } from './pages/WelcomPage/WelcomPage';
 import { SignIn } from './pages/SignIn/SignIn';
+import { SignUp } from './pages/SignUp/SignUp';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { Header } from './components/Header/Header';
+import ModalForm from './features/modals/modalForm';
 import { Footer } from './components/Footer/Footer';
-import { SignUp } from './pages/SignUp/SignUp';
+
 import BoardsPage from './pages/boards-page/boards-page';
 import SpecifiedBoardPage from './pages/specified-bard-page/specified-board-page';
 
 const App = () => {
-  localStorage.setItem(
-    'token',
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAwNzM5NzgsImV4cCI6MTY3MDExNzE3OH0.rVT1RZhBmBfPDuon2O_qWMftiAiUkpiOIXGngEyPsiU'
-  );
-
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<WelcomPage />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-      </Routes>
+    <RollbarProvider config={rollbarConfig}>
+      <ErrorBoundary>
+        <Router basename='/project-management-app'>
+          <Header />
+          <Routes>
+            <Route path="/" element={<WelcomPage />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/SignUp" element={<SignUp />} />
+          </Routes>
+          <NavLink end to="/boards"></NavLink>
+          <Routes>
+            <Route path="/boards" element={<BoardsPage />} />
+            <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
+          </Routes>
 
-      <NavLink end to="/boards">
-        BoardsPage
-      </NavLink>
-      
-      <Routes>
-        <Route path="/boards" element={<BoardsPage />} />
-        <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
-      </Routes>
-
-      <Footer />
-    </Router>
+          <ModalForm />
+          <Footer />
+        </Router>
+      </ErrorBoundary>
+    </RollbarProvider>
   );
 };
 

@@ -46,7 +46,7 @@ export const SignUp = () => {
       })
       .then((user: User | undefined) => {
         if (user) {
-          navigate('/project-management-app/SignIn');
+          navigate('/SignIn');
         }
       });
   };
@@ -73,7 +73,7 @@ export const SignUp = () => {
         </div>
         <p className={style.red}>{errors.password?.message}</p>
         <button type="submit" className={style.login_form_input + ' ' + style.login_form_btn}>
-          {t('signun').button}
+          {t('signup').button}
         </button>
       </form>
     </div>

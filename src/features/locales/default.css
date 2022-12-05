@@ -1,6 +1,8 @@
 .Select {
+  margin-right: 7px;
   position: relative;
   display: block;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -25,6 +27,8 @@
   position: relative;
   cursor: pointer;
   outline: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Select-current:focus + .Select-list {
@@ -44,11 +48,15 @@
 .Select-icon {
   position: absolute;
   top: 50%;
-  right: 15px;
+  right: 5px;
   transform: translateY(-50%);
   width: 20px;
-  opacity: 0.3;
   transition: 0.2s ease;
+}
+
+.Select-icon:hover {
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(190deg) brightness(119%) contrast(119%);
+  transition: 0.4s;
 }
 
 .Select-value {
@@ -67,11 +75,20 @@
   display: none;
   width: 100%;
   margin: 0;
-  padding: 15px;
-  background-color: #fff;
+  border-radius: 6px;
+  padding: 1em;
+  border: solid white;
+  border-radius: 5px;
+}
+
+.Select-input-text:hover {
+  color: #2d8bf0;
+  transition: 0.4s;
+  border: #2d8bf0 solid 2px; 
 }
 
 .Select-list {
+  color: white;
   position: absolute;
   width: 100%;
   padding: 0;
@@ -93,10 +110,11 @@
 .Select-option {
   display: block;
   padding: 15px;
-  background-color: #fff;
+  background-color: black;
 }
 
 .Select-option:hover, .Select-option:focus {
+  transition: color background-color ease-in-out .2s;
   color: #546c84;
   background-color: #fbfbfb;
 }

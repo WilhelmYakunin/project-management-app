@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { routes } from '../../app/routes'
 
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODI3ZjVlYTQyYjQ3OWQ0NzY5OWY2NyIsImxvZ2luIjoiSU1hc2siLCJpYXQiOjE2NzAxNzQyMTAsImV4cCI6MTY3MDIxNzQxMH0.w9fzTqYSMkI6piNMhHR_RY8MSSur5XCUNckV63WP-Fs'
+const token = 'Bearer ' + localStorage.getItem('auth_token')
 
 export const onInit = createAsyncThunk(
   'init',
@@ -15,7 +15,7 @@ export const onInit = createAsyncThunk(
           timeout: 10000,
       }
     }
-  
+
     const {data} = await axios(reqConfig())
     return data
   }
@@ -174,7 +174,9 @@ const modalFromsSlice = createSlice({
         state.info = { operation: 'idle', ids: idleIds }
       },
       logout: (state) => {
-        // logout logic
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('auth_token_exp_date');
+        localStorage.removeItem('user');
         state.modalType = 'unset'
         state.info = { operation: 'idle', ids: idleIds }
       },

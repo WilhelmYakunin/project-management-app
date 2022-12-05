@@ -1,5 +1,7 @@
 {
     "test": { "other": "tests" },
+    "home": "Home",
+    "main": "Go to main",
     "confirm_form": {
         "dialog": "Are you sure ?",
         "yes": "Yes",

@@ -1,14 +1,17 @@
 import React, { MouseEventHandler, useCallback } from "react"
 import { useTranslate } from "../../../app/hooks"
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { getModalInfo, getModalStatus } from "../../../app/selectors"
-import { closeModal, onDelete, logout } from "../modalsSlice"
+import { closeModal, onDelete } from "../modalsSlice"
+import { logOut } from "../../../app/reducers/user";
 
 import { cn as bem } from "@bem-react/classname"
 import './default.css'
 
 const ConfirmationModal = () => {
     const { t } = useTranslate()
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const { operation, ids } = useAppSelector(getModalInfo)
     const status = useAppSelector(getModalStatus)
@@ -17,9 +20,13 @@ const ConfirmationModal = () => {
     const callbacks = {
         onReject: useCallback(() => dispatch(closeModal()), [dispatch]),
         onConfirm: useCallback(() => {
-            operation === 'logout' && dispatch(logout())
+            if (operation === 'logout') {
+                dispatch(logOut())
+                dispatch(closeModal())
+                navigate('/')
+            } 
             operation !== 'logout' && dispatch(onDelete({ operation, ids }))
-        }, [dispatch, operation, ids]) 
+        }, [dispatch, navigate, operation, ids]) 
     }
 
     return (
@@ -29,7 +36,7 @@ const ConfirmationModal = () => {
                     <div className={cn('title')}>{t(operation).modal_title}</div>
                     <Button text='X' onClick={callbacks.onReject} />
                 </div>
-                <div>{t('confirm_form').dialog}{t(operation).question}</div>
+                <div className={cn('body')}>{t('confirm_form').dialog}{t(operation).question}</div>
                 <div className={cn('footer', {default: true})}>
                 <Button 
                             style={cn('footer_button', {default: true})} 

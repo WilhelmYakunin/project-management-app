@@ -7,6 +7,7 @@
     "@bem-react/classname": "^1.5.12",
     "@hookform/resolvers": "^2.9.7",
     "@reduxjs/toolkit": "^1.9.0",
+    "@rollbar/react": "^0.11.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
