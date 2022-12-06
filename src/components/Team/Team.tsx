@@ -1,9 +1,11 @@
+import { useTranslate } from '../../app/hooks';
 import style from './Team.module.css';
 
 export const Team = () => {
+  const { t } = useTranslate();
   return (
     <div className={style.team_wrapper}>
-      <p className={style.team_title}>Team</p>
+      <p className={style.team_title}>{t('team')}</p>
       <div className={style.team_string}>
      
           <a className={style.team_list} href="https://github.com/WilhelmYakunin" target="_blank" rel="noreferrer">

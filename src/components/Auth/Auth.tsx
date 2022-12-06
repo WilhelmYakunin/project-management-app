@@ -1,7 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { parseJwt } from '../../utils';
 
-export const isExpired = (token: string | null) => {
+export const isTokenExpired = () => {
+  const token = localStorage.getItem('auth_token');
   if (!token) {
     return true;
   }
@@ -10,7 +11,7 @@ export const isExpired = (token: string | null) => {
 };
 
 export const AuthWrapper = () => {
-  return isExpired(localStorage.getItem('auth_token')) ? (
+  return isTokenExpired() ? (
     <Navigate to="/project-management-app/SignIn" replace />
   ) : (
     <Outlet />

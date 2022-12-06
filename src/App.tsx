@@ -14,29 +14,34 @@ import { Footer } from './components/Footer/Footer';
 
 import BoardsPage from './pages/boards-page/boards-page';
 import SpecifiedBoardPage from './pages/specified-bard-page/specified-board-page';
+import { NotFound } from './pages/404/404';
+import { AuthWrapper } from './components/Auth/Auth';
 
 const App = () => {
   return (
     <RollbarProvider config={rollbarConfig}>
       <ErrorBoundary>
         <Suspense fallback={<Spinner />}>
-        <Router basename='/project-management-app'>
-          <Header />
-          <Routes>
-            <Route path="/" element={<WelcomPage />} />
-            <Route path="/SignIn" element={<SignIn />} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/profile/:id" element={<Profile />} />
-          </Routes>
-          <NavLink end to="/boards"></NavLink>
-          <Routes>
-            <Route path="/boards" element={<BoardsPage />} />
-            <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
-          </Routes>
+          <Router basename="/project-management-app">
+            <Header />
+            <Routes>
+              <Route path="/" element={<WelcomPage />} />
+              <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/404" element={<NotFound />} />
+            </Routes>
+            <NavLink end to="/boards"></NavLink>
+            <Routes>
+              <Route element={<AuthWrapper />}>
+                <Route path="/boards" element={<BoardsPage />} />
+                <Route path="/boards/:id" element={<SpecifiedBoardPage />} />
+              </Route>
+            </Routes>
 
-          <ModalForm />
-          <Footer />
-        </Router>
+            <ModalForm />
+            <Footer />
+          </Router>
         </Suspense>
       </ErrorBoundary>
     </RollbarProvider>

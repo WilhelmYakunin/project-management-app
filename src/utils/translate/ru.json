@@ -100,16 +100,18 @@
             "title": "Зарегистрируйте свой аккаунт"
         },
      "header": {
-            "button1": "Войти",
-            "button2": "Зарегистрироваться",
+            "signin": "Войти",
+            "signup": "Зарегистрироваться",
             "button3": "Выйти",
-            "button4": "Перейти на главную",
-            "button5": "Home"
+            "home": "Home"
         },
   "boardsPage": {
     "boardListItem": {
       "editBtn": "изменить",
       "deleteBtn": "удалить"
     }
-  }
+  },
+  "description": "Welcome to PM App! PM App is an application used in project management and helps you to visualize the tasks of a team, project, or company. PM App is simple, convenient and efficient. Create tasks, edit or delete them, monitor the progress!",
+  "team": "Team",
+  "NotFound": "Not Found"
 }
