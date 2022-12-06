@@ -1,0 +1,66 @@
+.tasks-list__item:not(:last-child) {
+  border-bottom: 1px solid #1983aa;
+  padding-bottom: 5px;
+}
+
+.task-wrapper {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 5px;
+}
+
+.task__data-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.task__title {
+  overflow: auto;
+}
+
+.task__description {
+  padding: 0 0 0 5px;
+}
+
+.task__title::-webkit-scrollbar, 
+.task__description::-webkit-scrollbar {
+  display: none;
+}
+
+.task__title:hover::-webkit-scrollbar, 
+.task__description:hover::-webkit-scrollbar {
+  display: block;
+  width: 50%;
+  height: 3px;
+}
+
+.task__title::-webkit-scrollbar-button, 
+.task__description::-webkit-scrollbar-button {
+  display: none;
+}
+
+.task__title::-webkit-scrollbar-track-piece, 
+.task__description::-webkit-scrollbar-track-piece {
+  background-color: #000000;
+}
+
+.task__title::-webkit-scrollbar-thumb, 
+.task__description::-webkit-scrollbar-thumb {
+  background-color: #1983aa;
+}
+
+.task__actions-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.task__edit-btn {
+  /* background-color: #03fff282; */
+}
+
+.task__remove-btn {
+  /* background-color: #ff034273; */
+}

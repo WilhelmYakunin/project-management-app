@@ -1,0 +1,117 @@
+{
+    "test": { "few": "теста" },
+    "home": "Домой",
+    "main": "К доскам",
+    "user": {
+        "button_title": "Редактировать профиль"
+    },
+    "confirm_form": {
+        "dialog": "Вы уверены, что хотите ",
+        "yes": "Да",
+        "no": "Нет"
+    },
+    "create_form": {
+        "yes": "Создать",
+        "no": "Отмена",
+        "task_title": "Заголовок",
+        "task_description": "Описание",
+        "task_participants": "Участник",
+        "task_order": "Очередь",
+        "task_file": "Файл",
+        "task_points": "Балл",
+        "orders": "[{\"value\":0,\"title\":\"первая\"},{\"value\":1,\"title\":\"вторая\"}]",
+        "title_err": "Заголовок не может быть пустым"
+    },
+    "update_form": {
+        "yes": "Поменять",
+        "no": "Отмена",
+        "task_title": "Новый заголовок",
+        "task_description": "Другое описание",
+        "task_participants": "Участник",
+        "task_order": "Очередь",
+        "task_file": "Файл",
+        "task_points": "Балл",
+        "orders": "[{\"value\":0,\"title\":\"первая\"},{\"value\":1,\"title\":\"вторая\"}]",
+        "title_err": "Заголовок не может быть пустым"
+    },
+    "profile_form": {
+        "title": "Изменение данных пользователя",
+        "new_name": "Введите новое имя",
+        "new_login": "Ввидети новый логин",
+        "new_password": "Введите новый пароль",
+        "button_change": "Поменять",
+        "button_abort": "Отмена",
+        "delete": "Удалить пользователя"
+    },
+    "delete-user": {
+        "modal_title": "Удаление пользователя",
+        "question": "удалиться?"
+    },
+    "logout": {
+        "button_title": "Выйти",
+        "modal_title": "Выход",
+        "question": "выйти?"
+    },
+    "delete-board": {
+        "button_title": "Удалить доску",
+        "modal_title": "Удаление доски",
+        "question": "удалить доску?"
+    },
+    "delete-column": {
+        "button_title": "Удалить колонку",
+        "modal_title": "Удаление колонки",
+        "question": "удалить колонку?"
+    },
+    "delete-task": {
+        "button_title": "Удалить задачу",
+        "modal_title": "Удаление задачи",
+        "question": "удалить задачу?"
+    },
+    "create-board": {
+        "button_title": "Создать доску",
+        "modal_title": "Создание доски"
+    },
+    "create-column": {
+        "button_title": "Создать колонку",
+        "modal_title": "Создание колонки"
+    },
+    "create-task": {
+        "button_title": "Создать задачу",
+        "modal_title": "Создание задачи"
+    },
+    "update-task": {
+        "button_title": "Изменить задачу",
+        "modal_title": "Изменение задачи"
+    },
+    "update-column": {
+        "button_title": "Изменить колонку",
+        "modal_title": "Изменение колонки"
+    },
+    "update-board": {
+        "button_title": "Изменить доску",
+        "modal_title": "Изменение доски"
+    },
+    "signin": {
+        "button": "Войти",
+        "title": "Войдите в аккаунт"
+    },
+     "signup": {
+            "button": "Зарегистрироваться",
+            "title": "Зарегистрируйте свой аккаунт"
+        },
+     "header": {
+            "signin": "Войти",
+            "signup": "Зарегистрироваться",
+            "button3": "Выйти",
+            "home": "Home"
+        },
+  "boardsPage": {
+    "boardListItem": {
+      "editBtn": "изменить",
+      "deleteBtn": "удалить"
+    }
+  },
+  "description": "Welcome to PM App! PM App is an application used in project management and helps you to visualize the tasks of a team, project, or company. PM App is simple, convenient and efficient. Create tasks, edit or delete them, monitor the progress!",
+  "team": "Team",
+  "NotFound": "Not Found"
+}
